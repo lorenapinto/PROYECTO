@@ -1,0 +1,286 @@
+// FEMENINA proyecto final.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+
+using namespace std;
+void informacion_femenina (int opcion);
+void tipos_de_violencia (int opcion);
+
+
+void main()
+{
+	int opcion;
+	cout<<"	       	FEMENINA	"<<endl;
+	do
+	{
+		cout<<"------------------------------------------------------------------"<<endl;
+		cout<<"[1] Acerca de nosotros... "<<endl;
+		cout<<"[2] Conoce los tipos de violencia que sufren las mujeres"<<endl;
+		cout<<"[3] Realiza nuestros tests que te ayudaran a saber si sufres de violencia"<<endl;
+		cout<<"[4] Tips para ayudarte"<<endl;
+		cout<<"[5] Eventos para ti"<<endl;
+		cout<<"[6] Profesionales capacitados para brindarte ayuda"<<endl;
+		cout<<"[7] Actividades para ellas"<<endl;
+		cout<<"[8] Foro Femenina"<<endl;
+		cout<<"[9] Rutas de Atencion"<<endl;
+		cout<<"[10] Contactos y sugerencias"<<endl;
+		cout<<"[0] SALIR"<<endl;
+		cout<<"-------------------------------------------------------------------"<<endl;
+		cin>>opcion;
+		system("CLS");
+
+		switch (opcion)
+		{
+		case 1:
+			{
+				informacion_femenina (opcion);
+				break;
+			}
+		case 2:
+			{
+				tipos_de_violencia(opcion);
+				break;
+			}
+		case 3:
+			{
+				
+				break;
+			}
+		case 4:
+			{
+				
+				break;
+			}
+		case 5:
+			{
+				
+				break;
+			}
+		case 6:
+			{
+				
+				break;
+			}
+		case 7:
+			{
+				
+				break;
+			}
+		case 8:
+			{
+				
+				break;
+			}
+		case 9:
+			{
+				
+				break;
+			}
+		case 10:
+			{
+				
+				break;
+			}
+		case 0:
+			{
+				
+				break;
+			}
+		default:
+			{
+				
+				break;
+			}
+		}
+
+	}while (( opcion>0) || (opcion<0));
+	getch();
+}
+
+
+void informacion_femenina (int opcion)
+{
+	int opinfo;
+	do
+	{
+		cout<<"Que deseas saber? "<<endl;
+		cout<<"------------------------------------"<<endl;
+		cout<<"[1] Sobre la app"<<endl;
+		cout<<"[2] Nuestros objetivos"<<endl;
+		cout<<"[3] Que ofrece la app"<<endl;
+		cout<<"[0] ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>opinfo;
+
+		system("CLS");
+
+		switch (opinfo)
+		{
+		case 1:
+			{
+				cout<<endl;
+				cout<<"								SOBRE LA APP "<<endl;
+				cout<<"Femenina es la aplicacion disenhada para ser una guia para las mujeres que han presenciado algun tipo de violencia en sus vidas."<<endl; 
+				cout<<"Aqui podras encontrar todas las herramientas necesarias ante situaciones de violencia."<<endl;
+				cout<<endl;
+				break;
+			}
+		case 2:
+			{
+				cout<<endl;
+				cout<<"							NUESTROS OBJETIVOS "<<endl;
+				cout<<"Femenina busca ayudar a las mujeres que sufren o han sufrido violencia de genero, "<<endl;
+				cout<<"tambien buscamos concientizar y en cierto grado prevenir cualquier tipo de violencia contra la mujer de una manera practica y sencilla."<<endl;
+				cout<<endl;
+				break;
+			}
+		case 3:
+			{
+				cout<<endl;
+				cout<<"								QUE OFFRECE LA APP "<<endl;
+				cout<<"Nuestra aplicacion brinda un soporte de ayuda y atencion a todas las mujeres sufren violencia de genero, "<<endl;
+				cout<<"o simplemente informarse de los tipos de violencia, brindadoles tips, informacion, profesionales altamente capacitados y actividades para ellas. "<<endl; 
+				cout<<endl;
+				break;
+			}
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl;
+				cout<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"Opcion no valida, volver a introducir: "<<endl;
+				break;
+			}
+		}
+	}while ((opinfo>0) || (opinfo<0));
+}
+
+
+
+void tipos_de_violencia (int opcion)
+{
+	int op;
+	
+	do
+	{
+		cout<<"---------------------------------------"<<endl;
+		cout<<"[1] Violencia Psicologica"<<endl;
+		cout<<"[2] Violencia Sexual"<<endl;
+		cout<<"[3] Violencia Economica y Patrimonial"<<endl;
+		cout<<"[4] Acoso u Hostigamiento"<<endl;
+		cout<<"[5] Violencia Domestica"<<endl;
+		cout<<"[6] Violencia Laboral"<<endl;
+		cout<<"[7] Violencia Mediatica"<<endl;
+		cout<<"[0] ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>op;
+
+		system("CLS");
+
+		switch (op)
+		{
+		case 1:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA PSICOLOGICA"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si tu pareja te impide trabajar, estudiar o desarrollarte en cualquier actividad que desees."<<endl;
+				cout<<"Si pretende controlar lo que haces y con quien vas."<<endl;
+				cout<<"Si te impide disponer libremente de tu tiempo, aislándote, vigilándote, prohibiéndote ver  las personas que quieres,"<<endl;
+				cout<<"Si te insulta, te descalifica ante los demás o te grita."<<endl;
+				cout<<"Si todo esto ocurre y sientes que esta pasando, tu estas sufriendo este tipo de violencia."<<endl<<endl;
+				cout<<"COMO ACTUAR?"<<endl<<endl;
+				break;
+			}
+		case 2:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA SEXUAL"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si te sientes obligada a mantener relaciones sexuales sin desearlo a través de chantajes, "<<endl;
+				cout<<"amenazas o enfados, tu estas sufriendo este tipo de violencia."<<endl<<endl;
+				cout<<"COMO ACTUAR?"<<endl<<endl;
+				break;
+			}
+		case 3:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA ECONOMICA Y PATRIMONIAL"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si sientes que te controla el dinero, te pone limites respecto a disponer de el."<<endl;
+				cout<<"Toma decisiones unilateralmente y se apodera de tus bienes o de los comunes"<<endl;
+				cout<<"sin tu consentimiento, tu estas sufriendo este tipo de violencia."<<endl<<endl;
+				cout<<"COMO ACTUAR?"<<endl<<endl;
+				break;
+			}
+		case 4:
+			{
+				cout<<endl;
+				cout<<"					ACOSO U HOSTIGAMIENTO"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si sientes que se comporta de manera abusiva, especialmente en su comportamiento, "<<endl;
+				cout<<"palabras, gestos escritos o en mensajes electrónicos,"<<endl;
+				cout<<"dirigidos a chantajearte y vigilarte, poniendo en peligro tu empleo, reconocimiento en el lugar del trabajo o fuera de el."<<endl;
+				cout<<"Estas sufriendo de acoso por parte de esta persona."<<endl<<endl;
+				cout<<"COMO ACTUAR?"<<endl<<endl;
+				break;
+			}
+		case 5:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA DOMESTICA"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Cuando un integrante de tu grupo familiar, o persona con quien mantienes una relación de afectividad "<<endl;
+				cout<<"ejerce fuerza física, o violencia psicológica contra tuyo, danhando tu dignidad y tu bienestar, "<<endl;
+				cout<<"ten cuidado!, estas sufriendo de esta violencia."<<endl<<endl;
+				cout<<"COMO ACTUAR?"<<endl<<endl;
+				break;
+			}
+		case 6:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA LABORAL"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si sientes que te discriminan dentro de los centros de trabajo públicos o privados, "<<endl;
+				cout<<"obstaculizando tu acceso al empleo, ascenso o estabilidad en el mismo, "<<endl;
+				cout<<" O si de igual manera no te dan el derecho de un igual salario por igual trabajo."<<endl;
+				cout<<" Estas sufriendo de violencia laboral."<<endl<<endl;
+				cout<<"COMO ACTUAR?"<<endl<<endl;
+				break;
+			}
+		case 7:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA MEDIATICA"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si publican o difunden mensajes e imágenes estereotipados a través de cualquier medio masivo de comunicación, "<<endl;
+				cout<<"que de manera directa e indirecta promueve la explotación a tu persona,"<<endl;
+				cout<<"o atente contra tu dignidad. Te encuentras frente a este tipo de violación."<<endl<<endl;
+				cout<<"COMO ACTUAR?"<<endl<<endl;
+				break;
+			}
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"Opcion no valida, volver a introducir: "<<endl;
+				break;
+			}
+		}
+		
+
+	}while ((op>0) || (op<0));
+
+}
