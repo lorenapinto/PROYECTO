@@ -4,11 +4,14 @@
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
+#define MAX 20
 
 
 using namespace std;
 void informacion_femenina (int opcion);
 void tipos_de_violencia (int opcion);
+void test (int opcion);
+void respuestas_test (int vec[]);
 
 
 void main()
@@ -47,7 +50,7 @@ void main()
 			}
 		case 3:
 			{
-				
+				test (opcion);
 				break;
 			}
 		case 4:
@@ -284,3 +287,1250 @@ void tipos_de_violencia (int opcion)
 	}while ((op>0) || (op<0));
 
 }
+
+
+void test (int opcion)
+{
+	int op,vec[MAX],posvec,respuesta;
+	cout<<"Responde a los siguientes tests de forma sincera, para saber si sufres de violencia y el grado de gravedad."<<endl;
+	do
+	{
+		cout<<"---------------------------------------"<<endl;
+		cout<<"[1] Violencia Psicologica"<<endl;
+		cout<<"[2] Violencia Sexual"<<endl;
+		cout<<"[3] Violencia Economica y Patrimonial"<<endl;
+		cout<<"[4] Acoso u Hostigamiento"<<endl;
+		cout<<"[5] Violencia Domestica"<<endl;
+		cout<<"[6] Violencia Laboral"<<endl;
+		cout<<"[7] Violencia Mediatica"<<endl;
+		cout<<"[0] ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>op;
+
+		system("CLS");
+
+		switch (op)
+		{
+		case 1:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA PSICOLOGICA"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1."<<endl;
+							cout<<"[1] Si "<<endl;
+							cout<<"[2] No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2."<<endl;
+								cout<<"[1] Si "<<endl;
+								cout<<"[2] No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3."<<endl;
+									cout<<"[1] Si "<<endl;
+									cout<<"[2] No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4."<<endl;
+										cout<<"[1] Si "<<endl;
+										cout<<"[2] No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5."<<endl;
+											cout<<"[1] Si "<<endl;
+											cout<<"[2] No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6."<<endl;
+												cout<<"[1] Si "<<endl;
+												cout<<"[2] No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7."<<endl;
+													cout<<"[1] Si "<<endl;
+													cout<<"[2] No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8."<<endl;
+														cout<<"[1] Si "<<endl;
+														cout<<"[2] No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9."<<endl;
+															cout<<"[1] Si "<<endl;
+															cout<<"[2] No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10."<<endl;
+																cout<<"[1] Si "<<endl;
+																cout<<"[2] No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 2:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA SEXUAL"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1."<<endl;
+							cout<<"[1] Si "<<endl;
+							cout<<"[2] No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2."<<endl;
+								cout<<"[1] Si "<<endl;
+								cout<<"[2] No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3."<<endl;
+									cout<<"[1] Si "<<endl;
+									cout<<"[2] No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4."<<endl;
+										cout<<"[1] Si "<<endl;
+										cout<<"[2] No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5."<<endl;
+											cout<<"[1] Si "<<endl;
+											cout<<"[2] No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6."<<endl;
+												cout<<"[1] Si "<<endl;
+												cout<<"[2] No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7."<<endl;
+													cout<<"[1] Si "<<endl;
+													cout<<"[2] No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8."<<endl;
+														cout<<"[1] Si "<<endl;
+														cout<<"[2] No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9."<<endl;
+															cout<<"[1] Si "<<endl;
+															cout<<"[2] No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10."<<endl;
+																cout<<"[1] Si "<<endl;
+																cout<<"[2] No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 3:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA ECONOMICA Y PATRIMONIAL"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1."<<endl;
+							cout<<"[1] Si "<<endl;
+							cout<<"[2] No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2."<<endl;
+								cout<<"[1] Si "<<endl;
+								cout<<"[2] No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3."<<endl;
+									cout<<"[1] Si "<<endl;
+									cout<<"[2] No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4."<<endl;
+										cout<<"[1] Si "<<endl;
+										cout<<"[2] No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5."<<endl;
+											cout<<"[1] Si "<<endl;
+											cout<<"[2] No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6."<<endl;
+												cout<<"[1] Si "<<endl;
+												cout<<"[2] No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7."<<endl;
+													cout<<"[1] Si "<<endl;
+													cout<<"[2] No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8."<<endl;
+														cout<<"[1] Si "<<endl;
+														cout<<"[2] No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9."<<endl;
+															cout<<"[1] Si "<<endl;
+															cout<<"[2] No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10."<<endl;
+																cout<<"[1] Si "<<endl;
+																cout<<"[2] No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 4:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					ACOSO U HOSTIGAMIENTO"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1."<<endl;
+							cout<<"[1] Si "<<endl;
+							cout<<"[2] No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2."<<endl;
+								cout<<"[1] Si "<<endl;
+								cout<<"[2] No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3."<<endl;
+									cout<<"[1] Si "<<endl;
+									cout<<"[2] No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4."<<endl;
+										cout<<"[1] Si "<<endl;
+										cout<<"[2] No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5."<<endl;
+											cout<<"[1] Si "<<endl;
+											cout<<"[2] No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6."<<endl;
+												cout<<"[1] Si "<<endl;
+												cout<<"[2] No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7."<<endl;
+													cout<<"[1] Si "<<endl;
+													cout<<"[2] No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8."<<endl;
+														cout<<"[1] Si "<<endl;
+														cout<<"[2] No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9."<<endl;
+															cout<<"[1] Si "<<endl;
+															cout<<"[2] No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10."<<endl;
+																cout<<"[1] Si "<<endl;
+																cout<<"[2] No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 5:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA DOMESTICA"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1."<<endl;
+							cout<<"[1] Si "<<endl;
+							cout<<"[2] No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2."<<endl;
+								cout<<"[1] Si "<<endl;
+								cout<<"[2] No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3."<<endl;
+									cout<<"[1] Si "<<endl;
+									cout<<"[2] No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4."<<endl;
+										cout<<"[1] Si "<<endl;
+										cout<<"[2] No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5."<<endl;
+											cout<<"[1] Si "<<endl;
+											cout<<"[2] No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6."<<endl;
+												cout<<"[1] Si "<<endl;
+												cout<<"[2] No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7."<<endl;
+													cout<<"[1] Si "<<endl;
+													cout<<"[2] No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8."<<endl;
+														cout<<"[1] Si "<<endl;
+														cout<<"[2] No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9."<<endl;
+															cout<<"[1] Si "<<endl;
+															cout<<"[2] No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10."<<endl;
+																cout<<"[1] Si "<<endl;
+																cout<<"[2] No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 6:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA LABORAL"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1."<<endl;
+							cout<<"[1] Si "<<endl;
+							cout<<"[2] No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2."<<endl;
+								cout<<"[1] Si "<<endl;
+								cout<<"[2] No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3."<<endl;
+									cout<<"[1] Si "<<endl;
+									cout<<"[2] No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4."<<endl;
+										cout<<"[1] Si "<<endl;
+										cout<<"[2] No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5."<<endl;
+											cout<<"[1] Si "<<endl;
+											cout<<"[2] No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6."<<endl;
+												cout<<"[1] Si "<<endl;
+												cout<<"[2] No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7."<<endl;
+													cout<<"[1] Si "<<endl;
+													cout<<"[2] No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8."<<endl;
+														cout<<"[1] Si "<<endl;
+														cout<<"[2] No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9."<<endl;
+															cout<<"[1] Si "<<endl;
+															cout<<"[2] No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10."<<endl;
+																cout<<"[1] Si "<<endl;
+																cout<<"[2] No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 7:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA MEDIATICA"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1."<<endl;
+							cout<<"[1] Si "<<endl;
+							cout<<"[2] No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2."<<endl;
+								cout<<"[1] Si "<<endl;
+								cout<<"[2] No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3."<<endl;
+									cout<<"[1] Si "<<endl;
+									cout<<"[2] No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4."<<endl;
+										cout<<"[1] Si "<<endl;
+										cout<<"[2] No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5."<<endl;
+											cout<<"[1] Si "<<endl;
+											cout<<"[2] No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6."<<endl;
+												cout<<"[1] Si "<<endl;
+												cout<<"[2] No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7."<<endl;
+													cout<<"[1] Si "<<endl;
+													cout<<"[2] No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8."<<endl;
+														cout<<"[1] Si "<<endl;
+														cout<<"[2] No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9."<<endl;
+															cout<<"[1] Si "<<endl;
+															cout<<"[2] No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10."<<endl;
+																cout<<"[1] Si "<<endl;
+																cout<<"[2] No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"Opcion no valida, volver a introducir: "<<endl;
+				break;
+			}
+		}
+		
+
+	}while ((op>0) || (op<0));
+}
+
+void respuestas_test (int vec[])
+{
+	cout<<endl;
+	for (int i=0; i<10; i++)
+	{
+		cout<<vec[i]<<endl;
+	}
+}
+
