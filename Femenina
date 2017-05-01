@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
+#include <string>
 #define MAX 20
 
 
@@ -12,7 +13,11 @@ void informacion_femenina (int opcion);
 void tipos_de_violencia (int opcion);
 void test (int opcion);
 void respuestas_test (int vec[]);
-
+void tips (int opcion);
+void eventos (int opcion);
+void psicologos (int opcion);
+void abogados (int opcion);
+void actividades (int opcion);
 
 void main()
 {
@@ -55,22 +60,26 @@ void main()
 			}
 		case 4:
 			{
-				
+				tips (opcion);
 				break;
 			}
 		case 5:
 			{
-				
+				eventos (opcion);
 				break;
 			}
 		case 6:
 			{
-				
+				cout<<endl<<"Femenina cree que es muy importante la ayuda profesional en estas ocasiones."<<endl;
+				cout<<"Un psicologo puede ser una gran ayuda para ti, a continuacion te mostraremos una lista de los psicologos que tenemos recomendados para ti. "<<endl<<endl;
+				psicologos (opcion);
+				cout<<endl<<endl<<"Si es necesaria ayuda legal, a continuacion te mostraremos una lista de los abogados que tenemos recomendados para ti. "<<endl<<endl;
+				abogados (opcion);
 				break;
 			}
 		case 7:
 			{
-				
+				actividades (opcion);
 				break;
 			}
 		case 8:
@@ -174,14 +183,13 @@ void tipos_de_violencia (int opcion)
 	
 	do
 	{
+		cout<<"Selecciona una categoria: "<<endl;
 		cout<<"---------------------------------------"<<endl;
 		cout<<"[1] Violencia Psicologica"<<endl;
 		cout<<"[2] Violencia Sexual"<<endl;
 		cout<<"[3] Violencia Economica y Patrimonial"<<endl;
-		cout<<"[4] Acoso u Hostigamiento"<<endl;
-		cout<<"[5] Violencia Domestica"<<endl;
-		cout<<"[6] Violencia Laboral"<<endl;
-		cout<<"[7] Violencia Mediatica"<<endl;
+		cout<<"[4] Violencia Domestica"<<endl;
+		cout<<"[5] Violencia Laboral"<<endl;
 		cout<<"[0] ATRAS"<<endl;
 		cout<<"------------------------------------"<<endl;
 		cin>>op;
@@ -200,7 +208,6 @@ void tipos_de_violencia (int opcion)
 				cout<<"Si te impide disponer libremente de tu tiempo, aislándote, vigilándote, prohibiéndote ver  las personas que quieres,"<<endl;
 				cout<<"Si te insulta, te descalifica ante los demás o te grita."<<endl;
 				cout<<"Si todo esto ocurre y sientes que esta pasando, tu estas sufriendo este tipo de violencia."<<endl<<endl;
-				cout<<"COMO ACTUAR?"<<endl<<endl;
 				break;
 			}
 		case 2:
@@ -210,7 +217,6 @@ void tipos_de_violencia (int opcion)
 				cout<<"QUE ES? "<<endl<<endl;
 				cout<<"Si te sientes obligada a mantener relaciones sexuales sin desearlo a través de chantajes, "<<endl;
 				cout<<"amenazas o enfados, tu estas sufriendo este tipo de violencia."<<endl<<endl;
-				cout<<"COMO ACTUAR?"<<endl<<endl;
 				break;
 			}
 		case 3:
@@ -221,22 +227,9 @@ void tipos_de_violencia (int opcion)
 				cout<<"Si sientes que te controla el dinero, te pone limites respecto a disponer de el."<<endl;
 				cout<<"Toma decisiones unilateralmente y se apodera de tus bienes o de los comunes"<<endl;
 				cout<<"sin tu consentimiento, tu estas sufriendo este tipo de violencia."<<endl<<endl;
-				cout<<"COMO ACTUAR?"<<endl<<endl;
 				break;
 			}
 		case 4:
-			{
-				cout<<endl;
-				cout<<"					ACOSO U HOSTIGAMIENTO"<<endl;
-				cout<<"QUE ES? "<<endl<<endl;
-				cout<<"Si sientes que se comporta de manera abusiva, especialmente en su comportamiento, "<<endl;
-				cout<<"palabras, gestos escritos o en mensajes electrónicos,"<<endl;
-				cout<<"dirigidos a chantajearte y vigilarte, poniendo en peligro tu empleo, reconocimiento en el lugar del trabajo o fuera de el."<<endl;
-				cout<<"Estas sufriendo de acoso por parte de esta persona."<<endl<<endl;
-				cout<<"COMO ACTUAR?"<<endl<<endl;
-				break;
-			}
-		case 5:
 			{
 				cout<<endl;
 				cout<<"					VIOLENCIA DOMESTICA"<<endl;
@@ -244,10 +237,9 @@ void tipos_de_violencia (int opcion)
 				cout<<"Cuando un integrante de tu grupo familiar, o persona con quien mantienes una relación de afectividad "<<endl;
 				cout<<"ejerce fuerza física, o violencia psicológica contra tuyo, danhando tu dignidad y tu bienestar, "<<endl;
 				cout<<"ten cuidado!, estas sufriendo de esta violencia."<<endl<<endl;
-				cout<<"COMO ACTUAR?"<<endl<<endl;
 				break;
 			}
-		case 6:
+		case 5:
 			{
 				cout<<endl;
 				cout<<"					VIOLENCIA LABORAL"<<endl;
@@ -256,20 +248,9 @@ void tipos_de_violencia (int opcion)
 				cout<<"obstaculizando tu acceso al empleo, ascenso o estabilidad en el mismo, "<<endl;
 				cout<<" O si de igual manera no te dan el derecho de un igual salario por igual trabajo."<<endl;
 				cout<<" Estas sufriendo de violencia laboral."<<endl<<endl;
-				cout<<"COMO ACTUAR?"<<endl<<endl;
 				break;
 			}
-		case 7:
-			{
-				cout<<endl;
-				cout<<"					VIOLENCIA MEDIATICA"<<endl;
-				cout<<"QUE ES? "<<endl<<endl;
-				cout<<"Si publican o difunden mensajes e imágenes estereotipados a través de cualquier medio masivo de comunicación, "<<endl;
-				cout<<"que de manera directa e indirecta promueve la explotación a tu persona,"<<endl;
-				cout<<"o atente contra tu dignidad. Te encuentras frente a este tipo de violación."<<endl<<endl;
-				cout<<"COMO ACTUAR?"<<endl<<endl;
-				break;
-			}
+		
 		case 0:
 			{
 				cout<<endl;
@@ -295,14 +276,13 @@ void test (int opcion)
 	cout<<"Responde a los siguientes tests de forma sincera, para saber si sufres de violencia y el grado de gravedad."<<endl;
 	do
 	{
+		cout<<"Selecciona una categoria: "<<endl;
 		cout<<"---------------------------------------"<<endl;
 		cout<<"[1] Violencia Psicologica"<<endl;
 		cout<<"[2] Violencia Sexual"<<endl;
 		cout<<"[3] Violencia Economica y Patrimonial"<<endl;
-		cout<<"[4] Acoso u Hostigamiento"<<endl;
-		cout<<"[5] Violencia Domestica"<<endl;
-		cout<<"[6] Violencia Laboral"<<endl;
-		cout<<"[7] Violencia Mediatica"<<endl;
+		cout<<"[4] Violencia Domestica"<<endl;
+		cout<<"[5] Violencia Laboral"<<endl;
 		cout<<"[0] ATRAS"<<endl;
 		cout<<"------------------------------------"<<endl;
 		cin>>op;
@@ -322,7 +302,7 @@ void test (int opcion)
 					{
 						do
 						{
-							cout<<"1."<<endl;
+							cout<<"1. No puedes elegir libremente la forma en que te vistes."<<endl;
 							cout<<"[1] Si "<<endl;
 							cout<<"[2] No "<<endl;
 							cin>>respuesta;
@@ -338,7 +318,7 @@ void test (int opcion)
 						{
 							do
 							{
-								cout<<"2."<<endl;
+								cout<<"2.No te escucha con atención cuando hablas y no tiene en cuenta tus opiniones."<<endl;
 								cout<<"[1] Si "<<endl;
 								cout<<"[2] No "<<endl;
 								cin>>respuesta;
@@ -354,7 +334,7 @@ void test (int opcion)
 							{
 								do
 								{
-									cout<<"3."<<endl;
+									cout<<"3.Te manipula con información personal o de tus redes sociales?."<<endl;
 									cout<<"[1] Si "<<endl;
 									cout<<"[2] No "<<endl;
 									cin>>respuesta;
@@ -370,7 +350,7 @@ void test (int opcion)
 								{
 									do
 									{
-										cout<<"4."<<endl;
+										cout<<"4.Te aisla de tu familia y de tus amistades?."<<endl;
 										cout<<"[1] Si "<<endl;
 										cout<<"[2] No "<<endl;
 										cin>>respuesta;
@@ -386,7 +366,7 @@ void test (int opcion)
 									{
 										do
 										{
-											cout<<"5."<<endl;
+											cout<<"5.Quiere controlar lo que haces y con quien estas?"<<endl;
 											cout<<"[1] Si "<<endl;
 											cout<<"[2] No "<<endl;
 											cin>>respuesta;
@@ -402,7 +382,7 @@ void test (int opcion)
 										{
 											do
 											{
-												cout<<"6."<<endl;
+												cout<<"6.Se burla de ti y te dice que lo que haces no sirve para nada?."<<endl;
 												cout<<"[1] Si "<<endl;
 												cout<<"[2] No "<<endl;
 												cin>>respuesta;
@@ -418,7 +398,7 @@ void test (int opcion)
 											{
 												do
 												{
-													cout<<"7."<<endl;
+													cout<<"7.Sientes miedo o temor de sus reacciones?."<<endl;
 													cout<<"[1] Si "<<endl;
 													cout<<"[2] No "<<endl;
 													cin>>respuesta;
@@ -434,7 +414,7 @@ void test (int opcion)
 												{
 													do
 													{
-														cout<<"8."<<endl;
+														cout<<"8.Te golpea o hace danho con algún objeto o arma?."<<endl;
 														cout<<"[1] Si "<<endl;
 														cout<<"[2] No "<<endl;
 														cin>>respuesta;
@@ -450,7 +430,7 @@ void test (int opcion)
 													{
 														do
 														{
-															cout<<"9."<<endl;
+															cout<<"9.Amenaza con hacerte danho a ti, a tus hijas o hijos u otros familiares?"<<endl;
 															cout<<"[1] Si "<<endl;
 															cout<<"[2] No "<<endl;
 															cin>>respuesta;
@@ -466,7 +446,7 @@ void test (int opcion)
 														{
 															do
 															{
-																cout<<"10."<<endl;
+																cout<<"10.Ha intentado golpearte en publico para que las personas vean que el tiene mayor autoridad?"<<endl;
 																cout<<"[1] Si "<<endl;
 																cout<<"[2] No "<<endl;
 																cin>>respuesta;
@@ -493,7 +473,7 @@ void test (int opcion)
 					{
 						do
 						{
-							cout<<"1."<<endl;
+							cout<<"1.No has decidido ni hablado con tu pareja acerca del uso de preservativos para evitar infecciones de transmisión sexual."<<endl;
 							cout<<"[1] Si "<<endl;
 							cout<<"[2] No "<<endl;
 							cin>>respuesta;
@@ -509,7 +489,7 @@ void test (int opcion)
 						{
 							do
 							{
-								cout<<"2."<<endl;
+								cout<<"2.Cuando tienes dudas sobre tu salud sexual las dejas pasar?"<<endl;
 								cout<<"[1] Si "<<endl;
 								cout<<"[2] No "<<endl;
 								cin>>respuesta;
@@ -525,7 +505,7 @@ void test (int opcion)
 							{
 								do
 								{
-									cout<<"3."<<endl;
+									cout<<"3.3.	Tu pareja critica tu apariencia o se burla de tu cuerpo en publico o en privado?"<<endl;
 									cout<<"[1] Si "<<endl;
 									cout<<"[2] No "<<endl;
 									cin>>respuesta;
@@ -541,7 +521,7 @@ void test (int opcion)
 								{
 									do
 									{
-										cout<<"4."<<endl;
+										cout<<"4.Tu pareja te oblida a ver pornografía y/o tener practicas sexuales que te desagradan o incomodan?"<<endl;
 										cout<<"[1] Si "<<endl;
 										cout<<"[2] No "<<endl;
 										cin>>respuesta;
@@ -557,7 +537,7 @@ void test (int opcion)
 									{
 										do
 										{
-											cout<<"5."<<endl;
+											cout<<"5.Tu pareja te impide o condiciona el uso de métodos anticonceptivos?"<<endl;
 											cout<<"[1] Si "<<endl;
 											cout<<"[2] No "<<endl;
 											cin>>respuesta;
@@ -573,7 +553,7 @@ void test (int opcion)
 										{
 											do
 											{
-												cout<<"6."<<endl;
+												cout<<"6.Te sientes presionada para sostener relaciones sexuales?"<<endl;
 												cout<<"[1] Si "<<endl;
 												cout<<"[2] No "<<endl;
 												cin>>respuesta;
@@ -589,7 +569,7 @@ void test (int opcion)
 											{
 												do
 												{
-													cout<<"7."<<endl;
+													cout<<"7.Amenaza con publicar tus fotografías o videos intimos?"<<endl;
 													cout<<"[1] Si "<<endl;
 													cout<<"[2] No "<<endl;
 													cin>>respuesta;
@@ -605,7 +585,7 @@ void test (int opcion)
 												{
 													do
 													{
-														cout<<"8."<<endl;
+														cout<<"8.Has sentido presión para tomar decisiones respecto a continuar o interrumpir el embarazo?"<<endl;
 														cout<<"[1] Si "<<endl;
 														cout<<"[2] No "<<endl;
 														cin>>respuesta;
@@ -621,7 +601,7 @@ void test (int opcion)
 													{
 														do
 														{
-															cout<<"9."<<endl;
+															cout<<"9.No te realizas exámenes para la detección de enfermedades de transmisión sexual, ni pretendes hacerlo."<<endl;
 															cout<<"[1] Si "<<endl;
 															cout<<"[2] No "<<endl;
 															cin>>respuesta;
@@ -637,7 +617,7 @@ void test (int opcion)
 														{
 															do
 															{
-																cout<<"10."<<endl;
+																cout<<"10.No se menciona información con tu pareja sobre infecciones de transmisión sexual que les puedan afectar."<<endl;
 																cout<<"[1] Si "<<endl;
 																cout<<"[2] No "<<endl;
 																cin>>respuesta;
@@ -664,7 +644,7 @@ void test (int opcion)
 					{
 						do
 						{
-							cout<<"1."<<endl;
+							cout<<"1.No esta en tu decision la manera en que gastas el dinero que ganas."<<endl;
 							cout<<"[1] Si "<<endl;
 							cout<<"[2] No "<<endl;
 							cin>>respuesta;
@@ -680,7 +660,7 @@ void test (int opcion)
 						{
 							do
 							{
-								cout<<"2."<<endl;
+								cout<<"2.Tu pareja destruye elementos de tu propiedad o con valor sentimental para ti?"<<endl;
 								cout<<"[1] Si "<<endl;
 								cout<<"[2] No "<<endl;
 								cin>>respuesta;
@@ -696,7 +676,7 @@ void test (int opcion)
 							{
 								do
 								{
-									cout<<"3."<<endl;
+									cout<<"3.Tu pareja te impide o prohíbe trabajar?"<<endl;
 									cout<<"[1] Si "<<endl;
 									cout<<"[2] No "<<endl;
 									cin>>respuesta;
@@ -712,7 +692,7 @@ void test (int opcion)
 								{
 									do
 									{
-										cout<<"4."<<endl;
+										cout<<"4.Sientes presión por parte de tu pareja para que te endeudes o pidas créditos?"<<endl;
 										cout<<"[1] Si "<<endl;
 										cout<<"[2] No "<<endl;
 										cin>>respuesta;
@@ -728,7 +708,7 @@ void test (int opcion)
 									{
 										do
 										{
-											cout<<"5."<<endl;
+											cout<<"5.Debes cubrir exclusivamente con tus ingresos todos los gastos del hogar y/o de tus hijos e hijas?"<<endl;
 											cout<<"[1] Si "<<endl;
 											cout<<"[2] No "<<endl;
 											cin>>respuesta;
@@ -744,7 +724,7 @@ void test (int opcion)
 										{
 											do
 											{
-												cout<<"6."<<endl;
+												cout<<"6.El trabajo en el hogar se realiza solo de tu parte y no la de tu pareja?"<<endl;
 												cout<<"[1] Si "<<endl;
 												cout<<"[2] No "<<endl;
 												cin>>respuesta;
@@ -760,7 +740,7 @@ void test (int opcion)
 											{
 												do
 												{
-													cout<<"7."<<endl;
+													cout<<"7.Tu pareja te amenaza con quitar el apoyo económico si no haces lo que te pide?"<<endl;
 													cout<<"[1] Si "<<endl;
 													cout<<"[2] No "<<endl;
 													cin>>respuesta;
@@ -776,7 +756,7 @@ void test (int opcion)
 												{
 													do
 													{
-														cout<<"8."<<endl;
+														cout<<"8.Sientes que tu pareja esconde información y documentos sobre bienes, propiedades y pertenencias?"<<endl;
 														cout<<"[1] Si "<<endl;
 														cout<<"[2] No "<<endl;
 														cin>>respuesta;
@@ -792,7 +772,7 @@ void test (int opcion)
 													{
 														do
 														{
-															cout<<"9."<<endl;
+															cout<<"9.Cuando tienes problemas con tu pareja, deja de aportar para los gastos del hogar?"<<endl;
 															cout<<"[1] Si "<<endl;
 															cout<<"[2] No "<<endl;
 															cin>>respuesta;
@@ -808,7 +788,7 @@ void test (int opcion)
 														{
 															do
 															{
-																cout<<"10."<<endl;
+																cout<<"10. Las decsiones importantes para tu vida como estudiar, invertir, ahorrar, etc, no puedes tomarlas tu."<<endl;
 																cout<<"[1] Si "<<endl;
 																cout<<"[2] No "<<endl;
 																cin>>respuesta;
@@ -828,177 +808,6 @@ void test (int opcion)
 			{
 				posvec=0;
 				cout<<endl;
-				cout<<"					ACOSO U HOSTIGAMIENTO"<<endl;
-				for (int i=0; i<10; i++)
-				{
-					if (i==0)
-					{
-						do
-						{
-							cout<<"1."<<endl;
-							cout<<"[1] Si "<<endl;
-							cout<<"[2] No "<<endl;
-							cin>>respuesta;
-							if ((respuesta==1) || (respuesta==2))
-							{
-								vec[posvec]=respuesta;
-								posvec++;
-							}
-						}while ((respuesta!=1) && (respuesta!=2));
-					}
-					else
-						if (i==1)
-						{
-							do
-							{
-								cout<<"2."<<endl;
-								cout<<"[1] Si "<<endl;
-								cout<<"[2] No "<<endl;
-								cin>>respuesta;
-								if ((respuesta==1) || (respuesta==2))
-								{
-									vec[posvec]=respuesta;
-									posvec++;
-								}
-							}while ((respuesta!=1) && (respuesta!=2));
-						}
-						else
-							if (i==2)
-							{
-								do
-								{
-									cout<<"3."<<endl;
-									cout<<"[1] Si "<<endl;
-									cout<<"[2] No "<<endl;
-									cin>>respuesta;
-									if ((respuesta==1) || (respuesta==2))
-									{
-										vec[posvec]=respuesta;
-										posvec++;
-									}
-								}while ((respuesta!=1) && (respuesta!=2));
-							}
-							else
-								if (i==3)
-								{
-									do
-									{
-										cout<<"4."<<endl;
-										cout<<"[1] Si "<<endl;
-										cout<<"[2] No "<<endl;
-										cin>>respuesta;
-										if ((respuesta==1) || (respuesta==2))
-										{
-											vec[posvec]=respuesta;
-											posvec++;
-										}
-									}while ((respuesta!=1) && (respuesta!=2));
-								}
-								else
-									if (i==4)
-									{
-										do
-										{
-											cout<<"5."<<endl;
-											cout<<"[1] Si "<<endl;
-											cout<<"[2] No "<<endl;
-											cin>>respuesta;
-											if ((respuesta==1) || (respuesta==2))
-											{
-												vec[posvec]=respuesta;
-												posvec++;
-											}
-										}while ((respuesta!=1) && (respuesta!=2));
-									}
-									else
-										if(i==5)
-										{
-											do
-											{
-												cout<<"6."<<endl;
-												cout<<"[1] Si "<<endl;
-												cout<<"[2] No "<<endl;
-												cin>>respuesta;
-												if ((respuesta==1) || (respuesta==2))
-												{
-													vec[posvec]=respuesta;
-													posvec++;
-												}
-											}while ((respuesta!=1) && (respuesta!=2));
-										}
-										else
-											if (i==6)
-											{
-												do
-												{
-													cout<<"7."<<endl;
-													cout<<"[1] Si "<<endl;
-													cout<<"[2] No "<<endl;
-													cin>>respuesta;
-													if ((respuesta==1) || (respuesta==2))
-													{
-														vec[posvec]=respuesta;
-														posvec++;
-													}
-												}while ((respuesta!=1) && (respuesta!=2));
-											}
-											else
-												if(i==7)
-												{
-													do
-													{
-														cout<<"8."<<endl;
-														cout<<"[1] Si "<<endl;
-														cout<<"[2] No "<<endl;
-														cin>>respuesta;
-														if ((respuesta==1) || (respuesta==2))
-														{
-															vec[posvec]=respuesta;
-															posvec++;
-														}
-													}while ((respuesta!=1) && (respuesta!=2));
-												}
-												else
-													if (i==8)
-													{
-														do
-														{
-															cout<<"9."<<endl;
-															cout<<"[1] Si "<<endl;
-															cout<<"[2] No "<<endl;
-															cin>>respuesta;
-															if ((respuesta==1) || (respuesta==2))
-															{
-																vec[posvec]=respuesta;
-																posvec++;
-															}
-														}while ((respuesta!=1) && (respuesta!=2));
-													}
-													else
-														if(i==9)
-														{
-															do
-															{
-																cout<<"10."<<endl;
-																cout<<"[1] Si "<<endl;
-																cout<<"[2] No "<<endl;
-																cin>>respuesta;
-																if ((respuesta==1) || (respuesta==2))
-																{
-																	vec[posvec]=respuesta;
-																	posvec++;
-																}
-															}while ((respuesta!=1) && (respuesta!=2));
-														}
-														system("CLS");
-				}
-				respuestas_test (vec);
-				break;
-			}
-		case 5:
-			{
-				posvec=0;
-				cout<<endl;
 				cout<<"					VIOLENCIA DOMESTICA"<<endl;
 				for (int i=0; i<10; i++)
 				{
@@ -1006,7 +815,7 @@ void test (int opcion)
 					{
 						do
 						{
-							cout<<"1."<<endl;
+							cout<<"1.Sientes ansiedad o nerviosismo cuando estás cerca de tu pareja/familiar?"<<endl;
 							cout<<"[1] Si "<<endl;
 							cout<<"[2] No "<<endl;
 							cin>>respuesta;
@@ -1022,7 +831,7 @@ void test (int opcion)
 						{
 							do
 							{
-								cout<<"2."<<endl;
+								cout<<"2.Vigilas lo que haces por miedo a que tu pareja/familiar se enfade o se sienta mal?"<<endl;
 								cout<<"[1] Si "<<endl;
 								cout<<"[2] No "<<endl;
 								cin>>respuesta;
@@ -1038,7 +847,7 @@ void test (int opcion)
 							{
 								do
 								{
-									cout<<"3."<<endl;
+									cout<<"3.Tienes miedo de expresar una opinión diferente a la de tu pareja/familiar?"<<endl;
 									cout<<"[1] Si "<<endl;
 									cout<<"[2] No "<<endl;
 									cin>>respuesta;
@@ -1054,7 +863,7 @@ void test (int opcion)
 								{
 									do
 									{
-										cout<<"4."<<endl;
+										cout<<"4.Tu pareja te amenaza con hacerte daño?"<<endl;
 										cout<<"[1] Si "<<endl;
 										cout<<"[2] No "<<endl;
 										cin>>respuesta;
@@ -1070,7 +879,7 @@ void test (int opcion)
 									{
 										do
 										{
-											cout<<"5."<<endl;
+											cout<<"5.Tu pareja/familiar te critica o avergüenza delante de otras personas?"<<endl;
 											cout<<"[1] Si "<<endl;
 											cout<<"[2] No "<<endl;
 											cin>>respuesta;
@@ -1086,7 +895,7 @@ void test (int opcion)
 										{
 											do
 											{
-												cout<<"6."<<endl;
+												cout<<"6.Controla tu pareja/familiar lo que has estado haciendo y no cree tus respuestas?"<<endl;
 												cout<<"[1] Si "<<endl;
 												cout<<"[2] No "<<endl;
 												cin>>respuesta;
@@ -1102,7 +911,7 @@ void test (int opcion)
 											{
 												do
 												{
-													cout<<"7."<<endl;
+													cout<<"7.Te impide tu pareja salir o hacer cosas que deseas hacer?"<<endl;
 													cout<<"[1] Si "<<endl;
 													cout<<"[2] No "<<endl;
 													cin>>respuesta;
@@ -1118,7 +927,7 @@ void test (int opcion)
 												{
 													do
 													{
-														cout<<"8."<<endl;
+														cout<<"8.Te dice tu pareja/familiar que dejará de golpearte cuando empieces a comportarte correctamente?"<<endl;
 														cout<<"[1] Si "<<endl;
 														cout<<"[2] No "<<endl;
 														cin>>respuesta;
@@ -1134,7 +943,7 @@ void test (int opcion)
 													{
 														do
 														{
-															cout<<"9."<<endl;
+															cout<<"9.Mientes a tu familia, amigos o médicos acerca de tus moratones, cortes o arañazos?"<<endl;
 															cout<<"[1] Si "<<endl;
 															cout<<"[2] No "<<endl;
 															cin>>respuesta;
@@ -1150,7 +959,7 @@ void test (int opcion)
 														{
 															do
 															{
-																cout<<"10."<<endl;
+																cout<<"10.El comportamiento de tu pareja/familiar te hace sentir que estás equivocada?"<<endl;
 																cout<<"[1] Si "<<endl;
 																cout<<"[2] No "<<endl;
 																cin>>respuesta;
@@ -1165,8 +974,8 @@ void test (int opcion)
 				}
 				respuestas_test (vec);
 				break;
-			}
-		case 6:
+				}
+		case 5:
 			{
 				posvec=0;
 				cout<<endl;
@@ -1177,7 +986,7 @@ void test (int opcion)
 					{
 						do
 						{
-							cout<<"1."<<endl;
+							cout<<"1.Han realizado comentarios negativos sobre tu inteligencia o competencia?"<<endl;
 							cout<<"[1] Si "<<endl;
 							cout<<"[2] No "<<endl;
 							cin>>respuesta;
@@ -1193,7 +1002,7 @@ void test (int opcion)
 						{
 							do
 							{
-								cout<<"2."<<endl;
+								cout<<"2.Te han insultado?"<<endl;
 								cout<<"[1] Si "<<endl;
 								cout<<"[2] No "<<endl;
 								cin>>respuesta;
@@ -1209,7 +1018,7 @@ void test (int opcion)
 							{
 								do
 								{
-									cout<<"3."<<endl;
+									cout<<"3.Te han clavado la mirada de modo hostil?"<<endl;
 									cout<<"[1] Si "<<endl;
 									cout<<"[2] No "<<endl;
 									cin>>respuesta;
@@ -1225,7 +1034,7 @@ void test (int opcion)
 								{
 									do
 									{
-										cout<<"4."<<endl;
+										cout<<"4.Te han regañado o rebajado frente a otros?"<<endl;
 										cout<<"[1] Si "<<endl;
 										cout<<"[2] No "<<endl;
 										cin>>respuesta;
@@ -1241,7 +1050,7 @@ void test (int opcion)
 									{
 										do
 										{
-											cout<<"5."<<endl;
+											cout<<"5.Has sido víctima de rumores o cotilleos?"<<endl;
 											cout<<"[1] Si "<<endl;
 											cout<<"[2] No "<<endl;
 											cin>>respuesta;
@@ -1257,7 +1066,7 @@ void test (int opcion)
 										{
 											do
 											{
-												cout<<"6."<<endl;
+												cout<<"6.Han ignorado tus aportaciones?"<<endl;
 												cout<<"[1] Si "<<endl;
 												cout<<"[2] No "<<endl;
 												cin>>respuesta;
@@ -1273,7 +1082,7 @@ void test (int opcion)
 											{
 												do
 												{
-													cout<<"7."<<endl;
+													cout<<"7.Te han excluido de reuniones sociales relacionadas con el trabajo?"<<endl;
 													cout<<"[1] Si "<<endl;
 													cout<<"[2] No "<<endl;
 													cin>>respuesta;
@@ -1289,7 +1098,7 @@ void test (int opcion)
 												{
 													do
 													{
-														cout<<"8."<<endl;
+														cout<<"8.Alguien ha alardeado de su estatus o te ha tratado de un modo condescendiente?"<<endl;
 														cout<<"[1] Si "<<endl;
 														cout<<"[2] No "<<endl;
 														cin>>respuesta;
@@ -1305,7 +1114,7 @@ void test (int opcion)
 													{
 														do
 														{
-															cout<<"9."<<endl;
+															cout<<"9.Te han impedido expresarte (por ejemplo, te han interrumpido al hablar)?"<<endl;
 															cout<<"[1] Si "<<endl;
 															cout<<"[2] No "<<endl;
 															cin>>respuesta;
@@ -1321,7 +1130,7 @@ void test (int opcion)
 														{
 															do
 															{
-																cout<<"10."<<endl;
+																cout<<"10.Han intentado volver a otros contra ti"<<endl;
 																cout<<"[1] Si "<<endl;
 																cout<<"[2] No "<<endl;
 																cin>>respuesta;
@@ -1337,177 +1146,7 @@ void test (int opcion)
 				respuestas_test (vec);
 				break;
 			}
-		case 7:
-			{
-				posvec=0;
-				cout<<endl;
-				cout<<"					VIOLENCIA MEDIATICA"<<endl;
-				for (int i=0; i<10; i++)
-				{
-					if (i==0)
-					{
-						do
-						{
-							cout<<"1."<<endl;
-							cout<<"[1] Si "<<endl;
-							cout<<"[2] No "<<endl;
-							cin>>respuesta;
-							if ((respuesta==1) || (respuesta==2))
-							{
-								vec[posvec]=respuesta;
-								posvec++;
-							}
-						}while ((respuesta!=1) && (respuesta!=2));
-					}
-					else
-						if (i==1)
-						{
-							do
-							{
-								cout<<"2."<<endl;
-								cout<<"[1] Si "<<endl;
-								cout<<"[2] No "<<endl;
-								cin>>respuesta;
-								if ((respuesta==1) || (respuesta==2))
-								{
-									vec[posvec]=respuesta;
-									posvec++;
-								}
-							}while ((respuesta!=1) && (respuesta!=2));
-						}
-						else
-							if (i==2)
-							{
-								do
-								{
-									cout<<"3."<<endl;
-									cout<<"[1] Si "<<endl;
-									cout<<"[2] No "<<endl;
-									cin>>respuesta;
-									if ((respuesta==1) || (respuesta==2))
-									{
-										vec[posvec]=respuesta;
-										posvec++;
-									}
-								}while ((respuesta!=1) && (respuesta!=2));
-							}
-							else
-								if (i==3)
-								{
-									do
-									{
-										cout<<"4."<<endl;
-										cout<<"[1] Si "<<endl;
-										cout<<"[2] No "<<endl;
-										cin>>respuesta;
-										if ((respuesta==1) || (respuesta==2))
-										{
-											vec[posvec]=respuesta;
-											posvec++;
-										}
-									}while ((respuesta!=1) && (respuesta!=2));
-								}
-								else
-									if (i==4)
-									{
-										do
-										{
-											cout<<"5."<<endl;
-											cout<<"[1] Si "<<endl;
-											cout<<"[2] No "<<endl;
-											cin>>respuesta;
-											if ((respuesta==1) || (respuesta==2))
-											{
-												vec[posvec]=respuesta;
-												posvec++;
-											}
-										}while ((respuesta!=1) && (respuesta!=2));
-									}
-									else
-										if(i==5)
-										{
-											do
-											{
-												cout<<"6."<<endl;
-												cout<<"[1] Si "<<endl;
-												cout<<"[2] No "<<endl;
-												cin>>respuesta;
-												if ((respuesta==1) || (respuesta==2))
-												{
-													vec[posvec]=respuesta;
-													posvec++;
-												}
-											}while ((respuesta!=1) && (respuesta!=2));
-										}
-										else
-											if (i==6)
-											{
-												do
-												{
-													cout<<"7."<<endl;
-													cout<<"[1] Si "<<endl;
-													cout<<"[2] No "<<endl;
-													cin>>respuesta;
-													if ((respuesta==1) || (respuesta==2))
-													{
-														vec[posvec]=respuesta;
-														posvec++;
-													}
-												}while ((respuesta!=1) && (respuesta!=2));
-											}
-											else
-												if(i==7)
-												{
-													do
-													{
-														cout<<"8."<<endl;
-														cout<<"[1] Si "<<endl;
-														cout<<"[2] No "<<endl;
-														cin>>respuesta;
-														if ((respuesta==1) || (respuesta==2))
-														{
-															vec[posvec]=respuesta;
-															posvec++;
-														}
-													}while ((respuesta!=1) && (respuesta!=2));
-												}
-												else
-													if (i==8)
-													{
-														do
-														{
-															cout<<"9."<<endl;
-															cout<<"[1] Si "<<endl;
-															cout<<"[2] No "<<endl;
-															cin>>respuesta;
-															if ((respuesta==1) || (respuesta==2))
-															{
-																vec[posvec]=respuesta;
-																posvec++;
-															}
-														}while ((respuesta!=1) && (respuesta!=2));
-													}
-													else
-														if(i==9)
-														{
-															do
-															{
-																cout<<"10."<<endl;
-																cout<<"[1] Si "<<endl;
-																cout<<"[2] No "<<endl;
-																cin>>respuesta;
-																if ((respuesta==1) || (respuesta==2))
-																{
-																	vec[posvec]=respuesta;
-																	posvec++;
-																}
-															}while ((respuesta!=1) && (respuesta!=2));
-														}
-														system("CLS");
-				}
-				respuestas_test (vec);
-				break;
-			}
+	
 		case 0:
 			{
 				cout<<endl;
@@ -1527,10 +1166,901 @@ void test (int opcion)
 
 void respuestas_test (int vec[])
 {
+	int contSI=0, contNO=0;
 	cout<<endl;
 	for (int i=0; i<10; i++)
 	{
-		cout<<vec[i]<<endl;
+		if (vec[i]==1)
+			contSI++;
+		else
+			contNO++;
 	}
+	
+	if (contNO>contSI)
+		cout<<endl<<"No presentas signos de sufrir violencia, pero ten cuidado y siempre esta atenta a los signos que puedan indicar lo contrario."<<endl<<endl;
+	else
+		if (contSI>=0 && contSI<=2)
+			cout<<endl<<"Ten cuidado, creemos que es importante que busques ayuda de tus familiares o personas cercanas a ti para evitar que tu situacion empeore, estas a tiempo de evitarlo."<<endl<<endl;
+		else
+			if (contSI>=3 && contSI<=7)
+			{
+				cout<<endl<<"Buscar ayuda de un profesional es importante para poder tomar las decisiones correctas, un psicologo puede ayudarte en esta situacion."<<endl;
+				cout<<"Te derivaremos a nuestras listas de psicologos para que puedas acceder mas facilmente a ellos: "<<endl<<endl<<endl;
+				psicologos (contSI);
+			}
+			else
+				if (contSI>=8 && contSI<=10)
+			{
+				cout<<endl<<"Creemos que es muy importante que puedas buscar apoyo legal y psicologico."<<endl;
+				cout<<"A continuacion te mostraremos nuestra listas de psicologos y abogados recomendados para tu situacion: "<<endl;
+				cout<<"Dentro de nuestra lista de psicologos: "<<endl<<endl;
+				psicologos (contSI);
+				cout<<endl<<endl<<"Dentro de nuestra lista de abogados: "<<endl<<endl;
+				abogados(contSI);
+			}
+
 }
 
+
+void tips (int opcion)
+{
+	int op;
+	
+	do
+	{
+		cout<<"Selecciona una categoria: "<<endl;
+		cout<<"---------------------------------------"<<endl;
+		cout<<"[1] Violencia Psicologica"<<endl;
+		cout<<"[2] Violencia Sexual"<<endl;
+		cout<<"[3] Violencia Economica y Patrimonial"<<endl;
+		cout<<"[4] Violencia Domestica"<<endl;
+		cout<<"[5] Violencia Laboral"<<endl;
+		cout<<"[0] ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>op;
+
+		system("CLS");
+
+		switch (op)
+		{
+		case 1:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA PSICOLOGICA"<<endl;
+				cout<<"Tienes derecho a no ser confrontada con tu agresor en ningun espacio de atencion o procedimiento."<<endl;
+				cout<<"Si estas en riesgo o eres victima de violencias, es muy importante la atencion integral y el seguimiento a tu situacion."<<endl;
+				cout<<"Eres libre y autonoma frente a tus decisiones, no dejes que te impongan como vestirte, donde estudiar, que decir, etc."<<endl;
+				cout<<"Puedes compartir con alguna persona de tu congianza la situacion que estas atravezando, no tengas miedo ni pena de contarlo."<<endl;
+				break;
+			}
+		case 2:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA SEXUAL"<<endl;
+				cout<<"Dedica tiempo a actividades que te hagan sentirte bien. Es importante que descanses,compartas con tu familia, etc."<<endl;
+				cout<<"La violencia sexual requiere atencion inmediata y debe ser considerada como urgencia medica prioritaria y gratuita."<<endl;
+				cout<<"Accede a examenes para detectar alguna enfermedad de transmision sexual y realizarse una prueba de embarazo."<<endl;
+				cout<<"Informate acerca de tus derechos. Proteger tu cuerpo te ayuda a mantener una buena salud mental, emocional y fisica."<<endl;
+				break;
+			}
+		case 3:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA ECONOMICA Y PATRIMONIAL"<<endl;
+				cout<<"En caso de tener bienes o propiedades, es importante conocer la informacion acerca de las escrituras, registros, etc acerca de ellas."<<endl;
+				cout<<"Visibilizar el tiempo y esfuerzos que dedicas al mantenimiento del hogar y los cuidados que brindas a otras personas de tu familia o la comunidad."<<endl;
+				cout<<"Tienes libertad de decidir sobre tu dinero  patrimonio, no se termina esa libertad al tener una pareja."<<endl;
+				break;
+			}
+		case 4:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA DOMESTICA"<<endl;
+				cout<<"Comparte con tus familiares o amistades lo que estas pasando y como te sientes, ellos ayudaran a decidir que hacer frente a la situacion que estas pasando."<<endl;
+				cout<<"No dejes pasarlo dos o mas veces, no creas en el cambio de la persona. Busca ayuda antes que empeore la situacion."<<endl;
+				cout<<"Saque toda arma que se encuentre en su casa y siempre mantenga un celular al lado."<<endl;
+				break;
+			}
+		case 5:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA LABORAL"<<endl;
+				cout<<"No dejes que el abuso pase cada dia, ni lo ignores. Actua con inteligencia y expresa firmeza."<<endl;
+				cout<<"Si la situacion se esta saliendo de control, denuncia. Comunicalo con tu jefe de inmediato o con el dpto de recursos humanos."<<endl;
+				cout<<"Primero esta proteger tu integridad, si es necesario, busca otro trabajo donde te sientas comoda."<<endl;
+				break;
+			}
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"Opcion no valida, volver a introducir: "<<endl;
+				break;
+			}
+		}
+		
+
+	}while ((op>0) || (op<0));
+}
+
+
+void eventos (int opcion)
+{
+	cin.ignore();
+	int n=3;
+	string fecha[MAX],lugar[MAX],hora[MAX];
+	for (int i=0; i<n; i++)
+	{
+		fecha[i]="Fecha";
+		lugar[i]="Lugar";
+		hora[i]="Hora";
+		if (i==0)
+		{
+			cout<<endl<<"								NI UNA MENOS"<<endl;
+			cout<<"Vestidas de negro y bajo la consignia NI UNA MENOS, la ciudadania hara escuchar su voz de repudio hacia los feminicidios. Unete a la causa y ven a marchar con nosotros! "<<endl<<endl;
+			cout<<fecha[i]<<":"<<"\t"<<"\t"<<"19 de Mayo 2017"<<endl;
+			cout<<hora[i]<<":"<<"\t"<<"\t"<<"A hrs. 19pm"<<endl;
+			cout<<lugar[i]<<":"<<"\t"<<"\t"<<"Plaza 24 de Septiembre"<<endl<<endl;
+
+		}
+		else
+		{
+			if (i==1)
+			{
+			cout<<endl<<"								PINTA EL MUNDO DE NARANJA			"<<endl;
+			cout<<"En el dia internacional de la eliminacion de la violencia contra la mujer, te invitamos a formar parte de esta carrera para concientizar a las personas!."<<endl<<endl;
+			cout<<fecha[i]<<":"<<"\t"<<"\t"<<"25 de Noviembre 2017"<<endl;
+			cout<<hora[i]<<":"<<"\t"<<"\t"<<"A hrs. 8am"<<endl;
+			cout<<lugar[i]<<":"<<"\t"<<"\t"<<"Paque Los Mangales (Av. Beni)"<<endl<<endl;
+			}
+			else
+			{
+				if (i==2)
+				{
+					cout<<endl<<"					ROMPIENDO EL SILENCIO	"<<endl;
+					cout<<"Ayudanos a ayudarte, marcharemos por los derechos de todas las mujeres. Unete y ven a marchar con nosotros."<<endl<<endl;
+					cout<<fecha[i]<<":"<<"\t"<<"\t"<<"27 de Agosto 2017"<<endl;
+					cout<<hora[i]<<":"<<"\t"<<"\t"<<"A hrs. 17:30pm"<<endl;
+					cout<<lugar[i]<<":"<<"\t"<<"\t"<<"Plaza 24 de Septiembre"<<endl<<endl;
+				}
+			}
+		}
+		cin.ignore();
+	}
+	
+}
+
+void psicologos (int opcion)
+{
+	cin.ignore();
+	int enter;
+	string datos[MAX], datos1[MAX];
+	
+	datos[0]="Nombre: ";
+	datos[1]="Especialidad: ";
+	datos[2]="Direccion: ";
+	datos[3]="Mail: ";
+	datos[4]="Telefono: ";
+
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Ana Maria Melgar";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Psicologica";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="Av.Irala 672";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="mario.melgar@gmail.com.bo";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "370066931";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+	cout<<endl<<endl;
+	cin.ignore();
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Priscilla Arauz";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Sexual";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="Av.Ana Barva 620";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="psicologa_arauz@hotmail.com";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "3593274";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+
+	cout<<endl<<endl;
+	cin.ignore();
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Teresa Arias";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Economica y Patrimonial";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="Av.Alemania, C/Rio Apere 3310";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="centro.psicologico-psicologaarias@gmail.com";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "3429369";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+
+	cout<<endl<<endl;
+	cin.ignore();
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Isabel de las Contreras";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Domestica";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="C/Peru 53, oficina 309";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="isabel_delascontreras@gmail.com";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "3777834";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+
+	cout<<endl<<endl;
+	cin.ignore();
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Carla Perrogon";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Laboral";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="C/Manuel Ignacio Salvatierra 671";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="consultorio_psicologico@hotmail.com";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "3301644";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+	cout<<endl<<endl;
+}
+
+
+void abogados (int opcion)
+	{
+	cin.ignore();
+	int enter;
+	string datos[MAX], datos1[MAX];
+	
+	datos[0]="Nombre: ";
+	datos[1]="Especialidad: ";
+	datos[2]="Direccion: ";
+	datos[3]="Mail: ";
+	datos[4]="Telefono: ";
+
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Pablo Banegas";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Psicologica";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="Av.Canhoto 122";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="pablobanegasclaudio@gmail.com";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "3743551";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+	cout<<endl<<endl;
+	cin.ignore();
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Monroy & Arayz Asociados";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Sexual";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="Edif. Torre Equipetrol, Av. San Martin esq. 2 anillo";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="monroy_arauz_asociados@hotmail.com";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "35542367";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+
+	cout<<endl<<endl;
+	cin.ignore();
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Reynolds & Asociados";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Economica y Patrimonial";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="C/24 de Septiembre 663";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="reynoldsasociados_abogados@gmail.com";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "3444432";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+
+	cout<<endl<<endl;
+	cin.ignore();
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Araujo & Forgues SRL";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Domestica";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="C/Los Jazmines 13";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="abogados-araujoyforgues@gmail.com";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "3738722";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+
+	cout<<endl<<endl;
+	cin.ignore();
+	for (int i=0; i<5; i++)
+	{
+		if (i==0)
+		{
+			datos1[i]="Mozza y Asociados";
+			cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+		}
+		else
+			if (i==1)
+			{
+				datos1[i]="Violencia Laboral";
+				cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+			}
+			else
+				if (i==2)
+				{
+					datos1[i]="C/Guemes 10";
+					cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+				}
+				else
+					if (i==3)
+					{
+						datos1[i]="abogados-asociados.mozza@hotmail.com";
+						cout<<datos[i]<<"\t"<<"\t"<<datos1[i]<<endl;
+					}
+					else
+						if (i==4)
+						{
+							datos1[i]= "3306664";
+							cout<<datos[i]<<"\t"<<datos1[i]<<endl;
+						}
+	}
+	cout<<endl<<endl;
+}
+
+void actividades (int opcion)
+{
+	int op,op1,op2,op3;
+	string datos[MAX];
+	cout<<endl<<"Creemos que es muy importante que puedas tomar clases para tu proteccion, o clases que puedan ayudar a despejar la mente de la situacion que hayas atravesado."<<endl;
+	datos[0]="Direccion: ";
+	datos[1]="Telefono: ";
+	datos[2]="Mail: ";
+	datos[3]="Horarios: ";
+	datos[4]= "Costos Mensual: ";
+	do
+	{
+		cout<<"Selecciona una categoria: "<<endl;
+		cout<<"---------------------------------------"<<endl;
+		cout<<"[1] Clases de defensa personal"<<endl;
+		cout<<"[2] Gimnasio"<<endl;
+		cout<<"[3] Futbol"<<endl;
+		cout<<"[0] ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>op;
+
+		system("CLS");
+
+		switch (op)
+		{
+		case 1:
+			{
+				
+				do
+				{
+					cout<<"[1] Krav Maga Global Bolivia "<<endl;
+					cout<<"[2] Curso Basico de Defensa Personal"<<endl;
+					cout<<"[0] ATRAS"<<endl;
+					cin>>op1;
+					system("CLS");
+					switch (op1)
+					{
+					case 1:
+						{
+							cout<<endl<<"La academia Krav Maga Global Bolivia se inicio con el objetivo de difundir el sistema Krav-Maga en jovenes y adultos."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Radial 27 (zona zoo), 4 cuadras yendo al 4 anillo. #5552"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3455528"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.kravmagaglobal.com.bo"<<endl;
+											cout<<"\t"<<"info@kravmagaglobal.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Martes: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Jueves: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Viernes: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Sabado: "<<"\t"<<"10:00 a 12:00"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+													cout<<"3 Veces por semana Bs. 300."<<endl;
+													cout<<"4 Veces por semana Bs. 350."<<endl;
+													cout<<"5 Veces por semana Bs. 400."<<endl<<endl<<endl;
+												}
+
+							}
+							break;
+						}
+					case 2:
+						{
+							cout<<endl;
+							cout<<endl<<"Con el curso basico de defensa personl podras aprender a reconocer situaciones reales de peligro y aprender a defenderte ante ellas."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Centro cultural Franco-Aleman"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3497893"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.defensapersonal.scz.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												cout<<endl<<"Los cursos constan de 8 lecciones de 90min cada una"<<endl;
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"17:00 a 18:30"<<endl;
+												cout<<"Martes: "<<"\t"<<"20:00 a 21:30"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"17:00 a 18:30"<<endl;
+												cout<<"Jueves: "<<"\t"<<"20:00 a 21:30"<<endl;
+												cout<<"Viernes: "<<"\t"<<"17:00 a 18:30"<<endl;
+												cout<<"Sabado: "<<"\t"<<"11:00 a 12:30"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+													cout<<"Curso Bs. 330."<<endl;
+													cout<<"Matricula Bs. 200."<<endl<<endl;
+						
+												}
+
+							}
+							break;
+						}
+					case 0:
+						{
+							cout<<endl;
+							cout<<"ATRAS..."<<endl;
+							break;
+						}
+					default:
+						{
+							cout<<endl;
+							cout<<"Opcion no valida, volver a introducir."<<endl;
+							break;
+						}
+					}
+				}while ((op1>0) || (op1<0));
+				break;
+			}
+		case 2:
+			{
+				
+				do
+				{
+					cout<<"[1] Sbelta Gym "<<endl;
+					cout<<"[2] Curvas Gym"<<endl;
+					cout<<"[0] ATRAS"<<endl;
+					cin>>op2;
+					system("CLS");
+					switch (op2)
+					{
+					case 1:
+						{
+							cout<<endl<<"Sbelta gym te brinda una serie de clases y gimnasio especial para mujeres."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"C/Ballivian #123"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3465744"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.sbelta.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Martes: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Jueves: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Viernes: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Sabado: "<<"\t"<<"10:00 a 15:00"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+									
+													cout<<"Bs. 400. (incluye aparatos y las clases a las que desee registrarse"<<endl<<endl<<endl;
+												}
+
+							}
+							break;
+						}
+					case 2:
+						{
+							cout<<endl;
+							cout<<endl<<"Todo tipo de clases y aparatos para que puedas esculpir ese cuerpo, y todo solamente para mujeres!."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Av. Canhoto #222"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3898876"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.curvasgym.scz.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Martes: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Jueves: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Viernes: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Sabado: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+													cout<<"Matricula Bs. 500."<<endl<<endl;
+						
+												}
+
+							}
+							break;
+						}
+					case 0:
+						{
+							cout<<endl;
+							cout<<"ATRAS..."<<endl;
+							break;
+						}
+					default:
+						{
+							cout<<endl;
+							cout<<"Opcion no valida, volver a introducir."<<endl;
+							break;
+						}
+					}
+				}while ((op1>0) || (op1<0));
+				break;
+			}
+		case 3:
+			{
+				
+				do
+				{
+					cout<<"[1] EA Bolivia "<<endl;
+					cout<<"[2] Semillero"<<endl;
+					cout<<"[0] ATRAS"<<endl;
+					cin>>op2;
+					system("CLS");
+					switch (op2)
+					{
+					case 1:
+						{
+							cout<<endl<<"Aprende a jugar futbol para poder ser la mejor."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Av. Beni 5 anillo"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"34444321"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.eabolivia.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Martes: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Jueves: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Viernes: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Sabado: "<<"\t"<<"10:00 a 15:00"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+									
+													cout<<"Bs. 350. "<<endl<<endl<<endl;
+												}
+
+							}
+							break;
+						}
+					case 2:
+						{
+							cout<<endl;
+							cout<<endl<<"Formacion integral en los alumnos, transmitiendo a los jugadores conceptos basicos del futbol, afrontando con garantias los retos deportivos del futuro."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Cancga Bancruz en el Barrio Hamacas"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3888888"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.elsemillero.org.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"15:00 a 18:00"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"15:00 a 18:00"<<endl;
+												cout<<"Viernes: "<<"\t"<<"15:00 a 18:00"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+													cout<<"Matricula Bs. 300."<<endl<<endl;
+						
+												}
+
+							}
+							break;
+						}
+					case 0:
+						{
+							cout<<endl;
+							cout<<"ATRAS..."<<endl;
+							break;
+						}
+					default:
+						{
+							cout<<endl;
+							cout<<"Opcion no valida, volver a introducir."<<endl;
+							break;
+						}
+					}
+				}while ((op1>0) || (op1<0));
+				break;
+			}
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<endl;
+				cout<<"Opcion no valida, volver a introducir."<<endl;
+				break;
+			}
+		}
+	}while ((op>0) || (op<0));
+}
