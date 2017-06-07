@@ -1,0 +1,3096 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#define MAX_USERNAME 30
+#define MAX_NOMBRE 50 
+#define MAX_EMAIL 320
+#define MAX_CONTRASENA 128
+#define MAX 30
+#define MAX_COMENTARIO 140
+#define MAX_DIRECCION 50
+using namespace std;
+
+struct Persona {
+	char nombre[MAX_NOMBRE];
+	char especialidad[MAX_NOMBRE];
+	char direccion[MAX_DIRECCION];
+	char email[MAX_EMAIL];
+	int telefono;
+	int estado; 
+};
+struct Administrador {
+	char username[MAX_USERNAME];
+	char contrasena[MAX_CONTRASENA];
+	int estado;
+};
+struct Usuario {
+	char username[MAX_USERNAME];
+	char contrasena[MAX_CONTRASENA];
+	char nombre[MAX_NOMBRE];
+	char email[MAX_EMAIL];
+	char genero;
+	int telefono;
+	int estado;
+};
+struct Comentario {
+	char comm[MAX_COMENTARIO];
+};
+
+
+void encabezadoAgregarPsicologo();
+void encabezadoAgregarAbogado();
+void encabezadoAgregarUsuario();
+void encabezadoAgregarAdministrador();
+void encabezadoEliminarPsicologo();
+void encabezadoEliminarAbogado();
+void encabezadoEliminarUsuario();
+void encabezadoEliminarAdministrador();
+void encabezadoSignInUsuario();
+void encabezadoSignInAdministrador();
+void encabezadoMenuIngreso();
+void encabezadoMenuUsuario();
+void encabezadoMenuAdministrador();
+void encabezadoRutas();
+void encabezadoSalud();
+void encabezadoDenuncias();
+void encabezadoComentarios();
+void encabezadoContactanos();
+
+void informacion_femenina (int opcion);
+void tipos_de_violencia (int opcion);
+void test (int opcion);
+void respuestas_test (int vec[]);
+void tips (int opcion);
+void eventos (int opcion);
+void psicologos (int opcion);
+void abogados (int opcion);
+void actividades (int opcion);
+void rutasDeInformacion();
+void puntosDeSalud();
+void puntosDeDenuncia();
+
+
+void crearArchivoPsicologos();
+void crearArchivoAbogados();
+void agregarPsicologo();
+void agregarUsuario();
+void agregarAbogado();
+void agregarAdministrador();
+void agregarComentario();
+
+
+void esPrimeraEjecucion();
+void menuAdministrador();
+void menuUsuario();
+void signInUsuario();
+void signInAdministrador();
+
+void mostrarPsicologos();
+void mostrarAbogados();
+void eliminarPsicologo();
+void eliminarAbogado();
+void eliminarAdministrador();
+void eliminarUsuario();
+
+
+
+void imprimirArchivoPsicologo();
+void imprimirArchivoAbogado();
+void imprimirArchivoComentarios();
+void imprimirArchivoUsuario();
+void imprimirArchivoAdministrador();
+
+
+int obtenerPosicionEnArchivoPsicologo(char nombre[]);
+int obtenerPosicionEnArchivoAbogado(char nombre[]);
+int obtenerPosicionEnArchivoAdministrador(char nombre[]);
+int obtenerPosicionEnArchivoUsuario(char nombre[]);
+void crearArchivoSiNoExisteUsuario();
+void crearArchivoSiNoExisteAdministrador();
+void crearArchivoSiNoExistePsicologos();
+void crearArchivoSiNoExisteAbogados();
+void crearArchivoSiNoExisteComentarios();
+
+
+
+
+void encabezadoAgregarPsicologo() {
+	cout << "=======================================" << endl;
+	cout << "========== AGREGAR PSICOLOGO ==========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoAgregarAbogado() {
+	cout << "=======================================" << endl;
+	cout << "=========== AGREGAR ABOGADO ===========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoAgregarUsuario() {
+	cout << "=======================================" << endl;
+	cout << "=========== AGREGAR USUARIO ===========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoAgregarAdministrador() {
+	cout << "=======================================" << endl;
+	cout << "======== AGREGAR ADMINISTRADOR ========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoEliminarPsicologo() {
+	cout << "=======================================" << endl;
+	cout << "========= ELIMINAR PSICOLOGO ==========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoEliminarAbogado() {
+	cout << "=======================================" << endl;
+	cout << "========== ELIMINAR ABOGADO ===========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoEliminarUsuario() {
+	cout << "=======================================" << endl;
+	cout << "========== ELIMINAR USUARIO ===========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoEliminarAdministrador() {
+	cout << "=======================================" << endl;
+	cout << "======= ELIMINAR ADMINISTRADOR ========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoSignInUsuario() {
+	cout << "=======================================" << endl;
+	cout << "=========== SIGN IN USUARIO ===========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoSignInAdministrador() {
+	cout << "=======================================" << endl;
+	cout << "======== SIGN IN ADMINISTRADOR ========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoMenuIngreso() {
+	cout << "=======================================" << endl;
+	cout << "=========== MENU DE INGRESO ===========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoMenuUsuario() {
+	cout << "=======================================" << endl;
+	cout << "=========== MENU DE USUARIO ===========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoMenuAdministrador() {
+	cout << "=======================================" << endl;
+	cout << "======== MENU DE ADMINISTRADOR ========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoRutas() {
+	cout << "=======================================" << endl;
+	cout << "======== RUTAS DE INFORMACION =========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoContactanos() {
+	cout << "=======================================" << endl;
+	cout << "============= CONTACTANOS =============" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoSalud() {
+	cout << "=======================================" << endl;
+	cout << "=========== PUNTOS DE SALUD ===========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoDenuncias() {
+	cout << "=======================================" << endl;
+	cout << "========= PUNTOS DE DENUNCIA ==========" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+void encabezadoComentarios() {
+	cout << "=======================================" << endl;
+	cout << "============= COMENTARIOS =============" << endl;
+	cout << "=======================================" << endl << endl;
+}
+
+
+void informacion_femenina (int opcion)
+{
+	int opinfo;
+	do
+	{
+		cout<<"Que deseas saber? "<<endl;
+		cout<<"------------------------------------"<<endl;
+		cout<<"1. Sobre la app"<<endl;
+		cout<<"2. Nuestros objetivos"<<endl;
+		cout<<"3. Que ofrece la app"<<endl;
+		cout<<"0. ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>opinfo;
+
+		system("CLS");
+
+		switch (opinfo)
+		{
+		case 1:
+			{
+				cout<<endl;
+				cout<<"								SOBRE LA APP "<<endl;
+				cout<<"Femenina es la aplicacion disenhada para ser una guia para las mujeres que han presenciado algun tipo de violencia en sus vidas."<<endl; 
+				cout<<"Aqui podras encontrar todas las herramientas necesarias ante situaciones de violencia."<<endl;
+				cout<<endl<<endl;
+				break;
+			}
+		case 2:
+			{
+				cout<<endl;
+				cout<<"							NUESTROS OBJETIVOS "<<endl;
+				cout<<"Femenina busca ayudar a las mujeres que sufren o han sufrido violencia de genero, "<<endl;
+				cout<<"tambien buscamos concientizar y en cierto grado prevenir cualquier tipo de violencia contra la mujer de una manera practica y sencilla."<<endl;
+				cout<<endl<<endl;
+				break;
+			}
+		case 3:
+			{
+				cout<<endl;
+				cout<<"								QUE OFFRECE LA APP "<<endl;
+				cout<<"Nuestra aplicacion brinda un soporte de ayuda y atencion a todas las mujeres sufren violencia de genero, "<<endl;
+				cout<<"o simplemente informarse de los tipos de violencia, brindadoles tips, informacion, profesionales altamente capacitados y actividades para ellas. "<<endl; 
+				cout<<endl<<endl;
+				break;
+			}
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl;
+				cout<<endl<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"Opcion no valida, volver a introducir: "<<endl<<endl;
+				break;
+			}
+		}
+	}while ((opinfo>0) || (opinfo<0));
+}
+
+void tipos_de_violencia (int opcion)
+{
+	int op;
+
+	do
+	{
+		cout<<"Selecciona una categoria: "<<endl;
+		cout<<"---------------------------------------"<<endl;
+		cout<<"1. Violencia Psicologica"<<endl;
+		cout<<"2. Violencia Sexual"<<endl;
+		cout<<"3. Violencia Economica y Patrimonial"<<endl;
+		cout<<"4. Violencia Domestica"<<endl;
+		cout<<"5. Violencia Laboral"<<endl;
+		cout<<"0. ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>op;
+
+		system("CLS");
+
+		switch (op)
+		{
+		case 1:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA PSICOLOGICA"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si tu pareja te impide trabajar, estudiar o desarrollarte en cualquier actividad que desees."<<endl;
+				cout<<"Si pretende controlar lo que haces y con quien vas."<<endl;
+				cout<<"Si te impide disponer libremente de tu tiempo, aislándote, vigilándote, prohibiéndote ver  las personas que quieres,"<<endl;
+				cout<<"Si te insulta, te descalifica ante los demás o te grita."<<endl;
+				cout<<"Si todo esto ocurre y sientes que esta pasando, tu estas sufriendo este tipo de violencia."<<endl<<endl<<endl;
+				break;
+			}
+		case 2:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA SEXUAL"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si te sientes obligada a mantener relaciones sexuales sin desearlo a través de chantajes, "<<endl;
+				cout<<"amenazas o enfados, tu estas sufriendo este tipo de violencia."<<endl<<endl<<endl;
+				break;
+			}
+		case 3:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA ECONOMICA Y PATRIMONIAL"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si sientes que te controla el dinero, te pone limites respecto a disponer de el."<<endl;
+				cout<<"Toma decisiones unilateralmente y se apodera de tus bienes o de los comunes"<<endl;
+				cout<<"sin tu consentimiento, tu estas sufriendo este tipo de violencia."<<endl<<endl<<endl;
+				break;
+			}
+		case 4:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA DOMESTICA"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Cuando un integrante de tu grupo familiar, o persona con quien mantienes una relación de afectividad "<<endl;
+				cout<<"ejerce fuerza física, o violencia psicológica contra tuyo, danhando tu dignidad y tu bienestar, "<<endl;
+				cout<<"ten cuidado!, estas sufriendo de esta violencia."<<endl<<endl<<endl;
+				break;
+			}
+		case 5:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA LABORAL"<<endl;
+				cout<<"QUE ES? "<<endl<<endl;
+				cout<<"Si sientes que te discriminan dentro de los centros de trabajo públicos o privados, "<<endl;
+				cout<<"obstaculizando tu acceso al empleo, ascenso o estabilidad en el mismo, "<<endl;
+				cout<<" O si de igual manera no te dan el derecho de un igual salario por igual trabajo."<<endl;
+				cout<<" Estas sufriendo de violencia laboral."<<endl<<endl<<endl;
+				break;
+			}
+
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"Opcion no valida, volver a introducir: "<<endl<<endl;
+				break;
+			}
+		}
+
+
+	}while ((op>0) || (op<0));
+
+}
+
+void test (int opcion)
+{
+	int op,vec[MAX],posvec,respuesta;
+	cout<<"Responde a los siguientes tests de forma sincera, para saber si sufres de violencia y el grado de gravedad."<<endl;
+	do
+	{
+		cout<<"Selecciona una categoria: "<<endl;
+		cout<<"---------------------------------------"<<endl;
+		cout<<"1. Violencia Psicologica"<<endl;
+		cout<<"2. Violencia Sexual"<<endl;
+		cout<<"3. Violencia Economica y Patrimonial"<<endl;
+		cout<<"4. Violencia Domestica"<<endl;
+		cout<<"5. Violencia Laboral"<<endl;
+		cout<<"0. ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>op;
+
+		system("CLS");
+
+		switch (op)
+		{
+		case 1:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA PSICOLOGICA"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1. No puedes elegir libremente la forma en que te vistes."<<endl << endl;
+							cout<<"1. Si "<<endl;
+							cout<<"2. No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2. No te escucha con atención cuando hablas y no tiene en cuenta tus opiniones."<<endl << endl;
+								cout<<"1. Si "<<endl;
+								cout<<"2. No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3. Te manipula con información personal o de tus redes sociales?."<<endl << endl;
+									cout<<"1. Si "<<endl;
+									cout<<"2. No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4. Te aisla de tu familia y de tus amistades?."<<endl << endl;
+										cout<<"1. Si "<<endl;
+										cout<<"2. No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5. Quiere controlar lo que haces y con quien estas?"<<endl << endl;
+											cout<<"1. Si "<<endl;
+											cout<<"2. No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6. Se burla de ti y te dice que lo que haces no sirve para nada?."<<endl << endl;
+												cout<<"1. Si "<<endl;
+												cout<<"2. No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7. Sientes miedo o temor de sus reacciones?."<<endl << endl;
+													cout<<"1. Si "<<endl;
+													cout<<"2. No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8. Te golpea o hace danho con algún objeto o arma?."<<endl << endl;
+														cout<<"1. Si "<<endl;
+														cout<<"2. No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9. Amenaza con hacerte danho a ti, a tus hijas o hijos u otros familiares?"<<endl << endl;
+															cout<<"1. Si "<<endl;
+															cout<<"2. No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10. Ha intentado golpearte en publico para que las personas vean que el tiene mayor autoridad?"<<endl << endl;
+																cout<<"1. Si "<<endl;
+																cout<<"2. No "<<endl;
+																cin>>respuesta;
+
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 2:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA SEXUAL"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1. No has decidido ni hablado con tu pareja acerca del uso de preservativos para evitar infecciones de transmisión sexual."<<endl << endl;
+							cout<<"1. Si "<<endl;
+							cout<<"2. No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2. Cuando tienes dudas sobre tu salud sexual las dejas pasar?"<<endl << endl;
+								cout<<"1. Si "<<endl;
+								cout<<"2. No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3.	Tu pareja critica tu apariencia o se burla de tu cuerpo en publico o en privado?"<<endl << endl;
+									cout<<"1. Si "<<endl;
+									cout<<"2. No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4. Tu pareja te oblida a ver pornografía y/o tener practicas sexuales que te desagradan o incomodan?"<<endl << endl;
+										cout<<"1. Si "<<endl;
+										cout<<"2. No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5. Tu pareja te impide o condiciona el uso de métodos anticonceptivos?"<<endl << endl;
+											cout<<"1. Si "<<endl;
+											cout<<"2. No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6. Te sientes presionada para sostener relaciones sexuales?"<<endl << endl;
+												cout<<"1. Si "<<endl;
+												cout<<"2. No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7. Amenaza con publicar tus fotografías o videos intimos?"<<endl << endl;
+													cout<<"1. Si "<<endl;
+													cout<<"2. No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8. Has sentido presión para tomar decisiones respecto a continuar o interrumpir el embarazo?"<<endl << endl;
+														cout<<"1. Si "<<endl;
+														cout<<"2. No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9. No te realizas exámenes para la detección de enfermedades de transmisión sexual, ni pretendes hacerlo."<<endl << endl;
+															cout<<"1. Si "<<endl;
+															cout<<"2. No "<<endl;
+															cin>>respuesta;
+
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10. No se menciona información con tu pareja sobre infecciones de transmisión sexual que les puedan afectar."<<endl << endl;
+																cout<<"1. Si "<<endl;
+																cout<<"2. No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 3:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA ECONOMICA Y PATRIMONIAL"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1. No esta en tu decision la manera en que gastas el dinero que ganas."<<endl << endl;
+							cout<<"1. Si "<<endl;
+							cout<<"2. No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2. Tu pareja destruye elementos de tu propiedad o con valor sentimental para ti?"<<endl << endl;
+								cout<<"1. Si "<<endl;
+								cout<<"2. No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3. Tu pareja te impide o prohíbe trabajar?"<<endl << endl;
+									cout<<"1. Si "<<endl;
+									cout<<"2. No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4. Sientes presión por parte de tu pareja para que te endeudes o pidas créditos?"<<endl << endl;
+										cout<<"1. Si "<<endl;
+										cout<<"2. No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5. Debes cubrir exclusivamente con tus ingresos todos los gastos del hogar y/o de tus hijos e hijas?"<<endl << endl;
+											cout<<"1. Si "<<endl;
+											cout<<"2. No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6. El trabajo en el hogar se realiza solo de tu parte y no la de tu pareja?"<<endl << endl;
+												cout<<"1. Si "<<endl;
+												cout<<"2. No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7. Tu pareja te amenaza con quitar el apoyo económico si no haces lo que te pide?"<<endl << endl;
+													cout<<"1. Si "<<endl;
+													cout<<"2. No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8. Sientes que tu pareja esconde información y documentos sobre bienes, propiedades y pertenencias?"<<endl << endl;
+														cout<<"1. Si "<<endl;
+														cout<<"2. No "<<endl;
+														cin>>respuesta;
+
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9. Cuando tienes problemas con tu pareja, deja de aportar para los gastos del hogar?"<<endl << endl;
+															cout<<"1. Si "<<endl;
+															cout<<"2. No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10. Las decsiones importantes para tu vida como estudiar, invertir, ahorrar, etc, no puedes tomarlas tu."<<endl << endl;
+																cout<<"1. Si "<<endl;
+																cout<<"2. No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 4:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA DOMESTICA"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1. Sientes ansiedad o nerviosismo cuando estás cerca de tu pareja/familiar?"<<endl << endl;
+							cout<<"1. Si "<<endl;
+							cout<<"2. No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2. Vigilas lo que haces por miedo a que tu pareja/familiar se enfade o se sienta mal?"<<endl << endl;
+								cout<<"1. Si "<<endl;
+								cout<<"2. No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3. Tienes miedo de expresar una opinión diferente a la de tu pareja/familiar?"<<endl << endl;
+									cout<<"1. Si "<<endl;
+									cout<<"2. No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4. Tu pareja te amenaza con hacerte daño?"<<endl << endl;
+										cout<<"1. Si "<<endl;
+										cout<<"2. No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5. Tu pareja/familiar te critica o avergüenza delante de otras personas?"<<endl << endl;
+											cout<<"1. Si "<<endl;
+											cout<<"2. No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6. Controla tu pareja/familiar lo que has estado haciendo y no cree tus respuestas?"<<endl << endl;
+												cout<<"1. Si "<<endl;
+												cout<<"2. No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7. Te impide tu pareja salir o hacer cosas que deseas hacer?"<<endl << endl;
+													cout<<"1. Si "<<endl;
+													cout<<"2. No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8. Te dice tu pareja/familiar que dejará de golpearte cuando empieces a comportarte correctamente?"<<endl << endl;
+														cout<<"1. Si "<<endl;
+														cout<<"2. No "<<endl;
+														cin>> respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9. Mientes a tu familia, amigos o médicos acerca de tus moratones, cortes o arañazos?"<<endl << endl;
+															cout<<"1. Si "<<endl;
+															cout<<"2. No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10. El comportamiento de tu pareja/familiar te hace sentir que estás equivocada?"<<endl << endl;
+																cout<<"1. Si "<<endl;
+																cout<<"2. No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+		case 5:
+			{
+				posvec=0;
+				cout<<endl;
+				cout<<"					VIOLENCIA LABORAL"<<endl;
+				for (int i=0; i<10; i++)
+				{
+					if (i==0)
+					{
+						do
+						{
+							cout<<"1. Han realizado comentarios negativos sobre tu inteligencia o competencia?"<<endl << endl;
+							cout<<"1. Si "<<endl;
+							cout<<"2. No "<<endl;
+							cin>>respuesta;
+							if ((respuesta==1) || (respuesta==2))
+							{
+								vec[posvec]=respuesta;
+								posvec++;
+							}
+						}while ((respuesta!=1) && (respuesta!=2));
+					}
+					else
+						if (i==1)
+						{
+							do
+							{
+								cout<<"2. Te han insultado?"<<endl << endl;
+								cout<<"1. Si "<<endl;
+								cout<<"2. No "<<endl;
+								cin>>respuesta;
+								if ((respuesta==1) || (respuesta==2))
+								{
+									vec[posvec]=respuesta;
+									posvec++;
+								}
+							}while ((respuesta!=1) && (respuesta!=2));
+						}
+						else
+							if (i==2)
+							{
+								do
+								{
+									cout<<"3. Te han clavado la mirada de modo hostil?"<<endl << endl;
+									cout<<"1. Si "<<endl;
+									cout<<"2. No "<<endl;
+									cin>>respuesta;
+									if ((respuesta==1) || (respuesta==2))
+									{
+										vec[posvec]=respuesta;
+										posvec++;
+									}
+								}while ((respuesta!=1) && (respuesta!=2));
+							}
+							else
+								if (i==3)
+								{
+									do
+									{
+										cout<<"4. Te han regañado o rebajado frente a otros?"<<endl << endl;
+										cout<<"1. Si "<<endl;
+										cout<<"2. No "<<endl;
+										cin>>respuesta;
+										if ((respuesta==1) || (respuesta==2))
+										{
+											vec[posvec]=respuesta;
+											posvec++;
+										}
+									}while ((respuesta!=1) && (respuesta!=2));
+								}
+								else
+									if (i==4)
+									{
+										do
+										{
+											cout<<"5. Has sido víctima de rumores o cotilleos?"<<endl << endl;
+											cout<<"1. Si "<<endl;
+											cout<<"2. No "<<endl;
+											cin>>respuesta;
+											if ((respuesta==1) || (respuesta==2))
+											{
+												vec[posvec]=respuesta;
+												posvec++;
+											}
+										}while ((respuesta!=1) && (respuesta!=2));
+									}
+									else
+										if(i==5)
+										{
+											do
+											{
+												cout<<"6. Han ignorado tus aportaciones?"<<endl << endl;
+												cout<<"1. Si "<<endl;
+												cout<<"2. No "<<endl;
+												cin>>respuesta;
+												if ((respuesta==1) || (respuesta==2))
+												{
+													vec[posvec]=respuesta;
+													posvec++;
+												}
+											}while ((respuesta!=1) && (respuesta!=2));
+										}
+										else
+											if (i==6)
+											{
+												do
+												{
+													cout<<"7. Te han excluido de reuniones sociales relacionadas con el trabajo?"<<endl << endl;
+													cout<<"1. Si "<<endl;
+													cout<<"2. No "<<endl;
+													cin>>respuesta;
+													if ((respuesta==1) || (respuesta==2))
+													{
+														vec[posvec]=respuesta;
+														posvec++;
+													}
+												}while ((respuesta!=1) && (respuesta!=2));
+											}
+											else
+												if(i==7)
+												{
+													do
+													{
+														cout<<"8. Alguien ha alardeado de su estatus o te ha tratado de un modo condescendiente?"<< endl << endl;
+														cout<<"1. Si "<<endl;
+														cout<<"2. No "<<endl;
+														cin>>respuesta;
+														if ((respuesta==1) || (respuesta==2))
+														{
+															vec[posvec]=respuesta;
+															posvec++;
+														}
+													}while ((respuesta!=1) && (respuesta!=2));
+												}
+												else
+													if (i==8)
+													{
+														do
+														{
+															cout<<"9. Te han impedido expresarte (por ejemplo, te han interrumpido al hablar)?"<<endl << endl;
+															cout<<"1. Si "<<endl;
+															cout<<"2. No "<<endl;
+															cin>>respuesta;
+															if ((respuesta==1) || (respuesta==2))
+															{
+																vec[posvec]=respuesta;
+																posvec++;
+															}
+														}while ((respuesta!=1) && (respuesta!=2));
+													}
+													else
+														if(i==9)
+														{
+															do
+															{
+																cout<<"10. Han intentado volver a otros contra ti"<<endl << endl;
+																cout<<"1. Si "<<endl;
+																cout<<"2. No "<<endl;
+																cin>>respuesta;
+																if ((respuesta==1) || (respuesta==2))
+																{
+																	vec[posvec]=respuesta;
+																	posvec++;
+																}
+															}while ((respuesta!=1) && (respuesta!=2));
+														}
+														system("CLS");
+				}
+				respuestas_test (vec);
+				break;
+			}
+
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"Opcion no valida, volver a introducir: "<<endl;
+				break;
+			}
+		}
+
+
+	}while ((op>0) || (op<0));
+}
+
+void respuestas_test (int vec[])
+{
+	int contSI=0, contNO=0;
+	cout<<endl;
+	for (int i=0; i<10; i++)
+	{
+		if (vec[i]==1)
+			contSI++;
+		else
+			contNO++;
+	}
+
+	if (contSI==0)
+		cout<<endl<<"No presentas signos de sufrir violencia, pero ten cuidado y siempre esta atenta a los signos que puedan indicar lo contrario."<<endl<<endl;
+	else
+		if (contSI>=1 && contSI<=3)
+			cout<<endl<<"Ten cuidado, creemos que es importante que busques ayuda de tus familiares o personas cercanas a ti para evitar que tu situacion empeore, estas a tiempo de evitarlo."<<endl<<endl;
+		else
+			if (contSI>=4 && contSI<=7)
+			{
+				cout<<endl<<"Buscar ayuda de un profesional es importante para poder tomar las decisiones correctas, un psicologo puede ayudarte en esta situacion."<<endl;
+				cout<<"Te derivaremos a nuestras listas de psicologos para que puedas acceder mas facilmente a ellos: "<<endl<<endl<<endl;
+				//psicologos (contSI);
+				mostrarPsicologos();
+			}
+			else
+				if (contSI>=8 && contSI<=10)
+				{
+					cout<<endl<<"Creemos que es muy importante que puedas buscar apoyo legal y psicologico."<<endl;
+					cout<<"A continuacion te mostraremos nuestra listas de psicologos y abogados recomendados para tu situacion: "<<endl;
+					cout<<"Dentro de nuestra lista de psicologos: "<<endl<<endl;
+
+					mostrarPsicologos();
+					cout<<endl<<endl<<"Dentro de nuestra lista de abogados: "<<endl<<endl;
+
+					mostrarAbogados();
+				}
+
+}
+
+void tips (int opcion)
+{
+	int op;
+
+	do
+	{
+		cout<<"Selecciona una categoria: "<<endl;
+		cout<<"---------------------------------------"<<endl;
+		cout<<"1. Violencia Psicologica"<<endl;
+		cout<<"2. Violencia Sexual"<<endl;
+		cout<<"3. Violencia Economica y Patrimonial"<<endl;
+		cout<<"4. Violencia Domestica"<<endl;
+		cout<<"5. Violencia Laboral"<<endl;
+		cout<<"6. ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>op;
+
+		system("CLS");
+
+		switch (op)
+		{
+		case 1:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA PSICOLOGICA"<<endl;
+				cout<<"Tienes derecho a no ser confrontada con tu agresor en ningun espacio de atencion o procedimiento."<<endl;
+				cout<<"Si estas en riesgo o eres victima de violencias, es muy importante la atencion integral y el seguimiento a tu situacion."<<endl;
+				cout<<"Eres libre y autonoma frente a tus decisiones, no dejes que te impongan como vestirte, donde estudiar, que decir, etc."<<endl;
+				cout<<"Puedes compartir con alguna persona de tu congianza la situacion que estas atravezando, no tengas miedo ni pena de contarlo."<<endl<<endl<<endl;
+				break;
+			}
+		case 2:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA SEXUAL"<<endl;
+				cout<<"Dedica tiempo a actividades que te hagan sentirte bien. Es importante que descanses,compartas con tu familia, etc."<<endl;
+				cout<<"La violencia sexual requiere atencion inmediata y debe ser considerada como urgencia medica prioritaria y gratuita."<<endl;
+				cout<<"Accede a examenes para detectar alguna enfermedad de transmision sexual y realizarse una prueba de embarazo."<<endl;
+				cout<<"Informate acerca de tus derechos. Proteger tu cuerpo te ayuda a mantener una buena salud mental, emocional y fisica."<<endl<<endl<<endl;
+				break;
+			}
+		case 3:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA ECONOMICA Y PATRIMONIAL"<<endl;
+				cout<<"En caso de tener bienes o propiedades, es importante conocer la informacion acerca de las escrituras, registros, etc acerca de ellas."<<endl;
+				cout<<"Visibilizar el tiempo y esfuerzos que dedicas al mantenimiento del hogar y los cuidados que brindas a otras personas de tu familia o la comunidad."<<endl;
+				cout<<"Tienes libertad de decidir sobre tu dinero  patrimonio, no se termina esa libertad al tener una pareja."<<endl<<endl<<endl;
+				break;
+			}
+		case 4:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA DOMESTICA"<<endl;
+				cout<<"Comparte con tus familiares o amistades lo que estas pasando y como te sientes, ellos ayudaran a decidir que hacer frente a la situacion que estas pasando."<<endl;
+				cout<<"No dejes pasarlo dos o mas veces, no creas en el cambio de la persona. Busca ayuda antes que empeore la situacion."<<endl;
+				cout<<"Saque toda arma que se encuentre en su casa y siempre mantenga un celular al lado."<<endl<<endl<<endl;
+				break;
+			}
+		case 5:
+			{
+				cout<<endl;
+				cout<<"					VIOLENCIA LABORAL"<<endl;
+				cout<<"No dejes que el abuso pase cada dia, ni lo ignores. Actua con inteligencia y expresa firmeza."<<endl;
+				cout<<"Si la situacion se esta saliendo de control, denuncia. Comunicalo con tu jefe de inmediato o con el dpto de recursos humanos."<<endl;
+				cout<<"Primero esta proteger tu integridad, si es necesario, busca otro trabajo donde te sientas comoda."<<endl<<endl<<endl;
+				break;
+			}
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"Opcion no valida, volver a introducir: "<<endl;
+				break;
+			}
+		}
+
+
+	}while ((op>0) || (op<0));
+}
+
+void eventos (int opcion)
+{
+	int n=3;
+	string fecha[MAX],lugar[MAX],hora[MAX];
+	for (int i=0; i<n; i++)
+	{
+		fecha[i]="Fecha";
+		lugar[i]="Lugar";
+		hora[i]="Hora";
+		if (i==0)
+		{
+			cout<<"------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+			cout<<endl<<"								NI UNA MENOS"<<endl;
+			cout<<"Vestidas de negro y bajo la consignia NI UNA MENOS, la ciudadania hara escuchar su voz de repudio hacia los feminicidios. Unete a la causa y ven a marchar con nosotros! "<<endl<<endl;
+			cout<<fecha[i]<<":"<<"\t"<<"\t"<<"19 de Mayo 2017"<<endl;
+			cout<<hora[i]<<":"<<"\t"<<"\t"<<"A hrs. 19pm"<<endl;
+			cout<<lugar[i]<<":"<<"\t"<<"\t"<<"Plaza 24 de Septiembre"<<endl;
+			cout<<"------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl;
+		}
+		else
+		{
+			if (i==1)
+			{
+				cout<<"------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+				cout<<endl<<"								PINTA EL MUNDO DE NARANJA			"<<endl;
+				cout<<"En el dia internacional de la eliminacion de la violencia contra la mujer, te invitamos a formar parte de esta carrera para concientizar a las personas!."<<endl<<endl;
+				cout<<fecha[i]<<":"<<"\t"<<"\t"<<"25 de Noviembre 2017"<<endl;
+				cout<<hora[i]<<":"<<"\t"<<"\t"<<"A hrs. 8am"<<endl;
+				cout<<lugar[i]<<":"<<"\t"<<"\t"<<"Paque Los Mangales (Av. Beni)"<<endl;
+				cout<<"------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl;
+			}
+			else
+			{
+				if (i==2)
+				{
+					cout<<"------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+					cout<<endl<<"					ROMPIENDO EL SILENCIO	"<<endl;
+					cout<<"Ayudanos a ayudarte, marcharemos por los derechos de todas las mujeres. Unete y ven a marchar con nosotros."<<endl<<endl;
+					cout<<fecha[i]<<":"<<"\t"<<"\t"<<"27 de Agosto 2017"<<endl;
+					cout<<hora[i]<<":"<<"\t"<<"\t"<<"A hrs. 17:30pm"<<endl;
+					cout<<lugar[i]<<":"<<"\t"<<"\t"<<"Plaza 24 de Septiembre"<<endl;
+					cout<<"------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl;
+				}
+			}
+		}
+		cin.ignore();
+	}
+
+}
+
+void actividades (int opcion)
+{
+	int op,op1,op2,op3;
+	string datos[MAX];
+	cout<<endl<<"Creemos que es muy importante que puedas tomar clases para tu proteccion, o clases que puedan ayudar a despejar la mente de la situacion que hayas atravesado."<<endl;
+	datos[0]="Direccion: ";
+	datos[1]="Telefono: ";
+	datos[2]="Mail: ";
+	datos[3]="Horarios: ";
+	datos[4]= "Costos Mensual: ";
+	do
+	{
+		cout<<"Selecciona una categoria: "<<endl;
+		cout<<"---------------------------------------"<<endl;
+		cout<<"1. Clases de defensa personal"<<endl;
+		cout<<"2. Gimnasio"<<endl;
+		cout<<"3. Futbol"<<endl;
+		cout<<"0. ATRAS"<<endl;
+		cout<<"------------------------------------"<<endl;
+		cin>>op;
+
+		system("CLS");
+
+		switch (op)
+		{
+		case 1:
+			{
+
+				do
+				{
+					cout<<"1. Krav Maga Global Bolivia "<<endl;
+					cout<<"2. Curso Basico de Defensa Personal"<<endl;
+					cout<<"0. ATRAS"<<endl;
+					//cin>>op1;
+					cin>>op1;
+					system("CLS");
+					switch (op1)
+					{
+					case 1:
+						{
+							cout<<"---------------------------------------------------------------------------------------------------------------------------"<<endl;
+							cout<<endl<<"La academia Krav Maga Global Bolivia se inicio con el objetivo de difundir el sistema Krav-Maga en jovenes y adultos."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Radial 27 (zona zoo), 4 cuadras yendo al 4 anillo. #5552"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3455528"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.kravmagaglobal.com.bo"<<endl;
+											cout<<"\t"<<"info@kravmagaglobal.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Martes: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Jueves: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Viernes: "<<"\t"<<"20:00 a 21:00"<<endl;
+												cout<<"Sabado: "<<"\t"<<"10:00 a 12:00"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+													cout<<"3 Veces por semana Bs. 300."<<endl;
+													cout<<"4 Veces por semana Bs. 350."<<endl;
+													cout<<"5 Veces por semana Bs. 400."<<endl<<endl<<endl;
+												}
+
+							}
+							cout<<"---------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
+							break;
+						}
+					case 2:
+						{
+							cout<<endl;
+							cout<<"----------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+							cout<<endl<<"Con el curso basico de defensa personl podras aprender a reconocer situaciones reales de peligro y aprender a defenderte ante ellas."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Centro cultural Franco-Aleman"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3497893"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.defensapersonal.scz.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												cout<<endl<<"Los cursos constan de 8 lecciones de 90min cada una"<<endl;
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"17:00 a 18:30"<<endl;
+												cout<<"Martes: "<<"\t"<<"20:00 a 21:30"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"17:00 a 18:30"<<endl;
+												cout<<"Jueves: "<<"\t"<<"20:00 a 21:30"<<endl;
+												cout<<"Viernes: "<<"\t"<<"17:00 a 18:30"<<endl;
+												cout<<"Sabado: "<<"\t"<<"11:00 a 12:30"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+													cout<<"Curso Bs. 330."<<endl;
+													cout<<"Matricula Bs. 200."<<endl<<endl;
+
+												}
+
+							}
+							cout<<"--------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
+							break;
+						}
+					case 0:
+						{
+							cout<<endl;
+							cout<<"ATRAS..."<<endl;
+							break;
+						}
+					default:
+						{
+							cout<<endl;
+							cout<<"Opcion no valida, volver a introducir."<<endl;
+							break;
+						}
+					}
+				}while ((op1>0) || (op1<0));
+				break;
+			}
+		case 2:
+			{
+
+				do
+				{
+					cout<<"1. Sbelta Gym "<<endl;
+					cout<<"2. Curvas Gym"<<endl;
+					cout<<"0. ATRAS"<<endl;
+					//cin>>op2;
+					cin>>op2;
+					system("CLS");
+					switch (op2)
+					{
+					case 1:
+						{
+							cout<<"---------------------------------------------------------------------------------------------------------------------------"<<endl;
+							cout<<endl<<"Sbelta gym te brinda una serie de clases y gimnasio especial para mujeres."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"C/Ballivian #123"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3465744"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.sbelta.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Martes: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Jueves: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Viernes: "<<"\t"<<"6:00 a 22:00"<<endl;
+												cout<<"Sabado: "<<"\t"<<"10:00 a 15:00"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+
+													cout<<"Bs. 400. (incluye aparatos y las clases a las que desee registrarse"<<endl<<endl<<endl;
+												}
+
+							}
+							cout<<"-----------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
+							break;
+						}
+					case 2:
+						{
+							cout<<endl;
+							cout<<"---------------------------------------------------------------------------------------------------------------------------"<<endl;
+							cout<<endl<<"Todo tipo de clases y aparatos para que puedas esculpir ese cuerpo, y todo solamente para mujeres!."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Av. Canhoto #222"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3898876"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.curvasgym.scz.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Martes: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Jueves: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Viernes: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Sabado: "<<"\t"<<"5:30 a 21:30"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+													cout<<"Matricula Bs. 500."<<endl<<endl;
+
+												}
+
+							}
+							cout<<"---------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
+							break;
+						}
+					case 0:
+						{
+							cout<<endl;
+							cout<<"ATRAS..."<<endl;
+							break;
+						}
+					default:
+						{
+							cout<<endl;
+							cout<<"Opcion no valida, volver a introducir."<<endl;
+							break;
+						}
+					}
+				}while ((op1>0) || (op1<0));
+				break;
+			}
+		case 3:
+			{
+
+				do
+				{
+					cout<<"1. EA Bolivia "<<endl;
+					cout<<"2. Semillero"<<endl;
+					cout<<"0. ATRAS"<<endl;
+					cin>>op2;
+					system("CLS");
+					switch (op2)
+					{
+					case 1:
+						{
+							cout<<"---------------------------------------------------------------------------------------------------------------------------"<<endl;
+							cout<<endl<<"Aprende a jugar futbol para poder ser la mejor."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Av. Beni 5 anillo"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"34444321"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.eabolivia.com.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Martes: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Jueves: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Viernes: "<<"\t"<<"9:00 a 22:00"<<endl;
+												cout<<"Sabado: "<<"\t"<<"10:00 a 15:00"<<endl;
+												cout<<"Domingo: "<<"\t"<<"CERRADO"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+
+													cout<<"Bs. 350. "<<endl<<endl<<endl;
+												}
+
+							}
+							cout<<"---------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
+							break;
+						}
+					case 2:
+						{
+							cout<<endl;
+							cout<<"------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+							cout<<endl<<"Formacion integral en los alumnos, transmitiendo a los jugadores conceptos basicos del futbol, afrontando con garantias los retos deportivos del futuro."<<endl<<endl;
+							for (int i=0; i<5; i++)
+							{
+								if (i==0)
+									cout<<endl<<datos[i]<<"\t"<<"Cancga Bancruz en el Barrio Hamacas"<<endl;
+								else
+									if (i==1)
+										cout<<endl<<datos[i]<<"\t"<<"3888888"<<endl;
+									else
+										if(i==2)
+										{
+											cout<<endl<<datos[i]<<"\t"<<"www.elsemillero.org.bo"<<endl;
+										}
+										else
+											if(i==3)
+											{
+
+												cout<<endl<<datos[i]<<endl;
+												cout<<"Lunes: "<<"\t"<<"15:00 a 18:00"<<endl;
+												cout<<"Miercoles: "<<"\t"<<"15:00 a 18:00"<<endl;
+												cout<<"Viernes: "<<"\t"<<"15:00 a 18:00"<<endl;
+											}
+											else
+												if(i==4)
+												{
+													cout<<endl<<datos[i]<<endl;
+													cout<<"Matricula Bs. 300."<<endl<<endl;
+
+												}
+
+							}
+							cout<<"----------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
+							break;
+						}
+					case 0:
+						{
+							cout<<endl;
+							cout<<"ATRAS..."<<endl;
+							break;
+						}
+					default:
+						{
+							cout<<endl;
+							cout<<"Opcion no valida, volver a introducir."<<endl;
+							break;
+						}
+					}
+				}while ((op1>0) || (op1<0));
+				break;
+			}
+		case 0:
+			{
+				cout<<endl;
+				cout<<"Volviendo al menu principal..."<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<endl;
+				cout<<"Opcion no valida, volver a introducir."<<endl;
+				break;
+			}
+		}
+	}while ((op>0) || (op<0));
+}
+
+void rutasDeInformacion() {
+	int op;
+
+	do {
+		encabezadoRutas();
+		cout << "1. Puntos de salud" << endl;
+		cout << "2. Puntos de denuncia" << endl;
+		cout << "0. Volver" << endl;
+		cout << "Ingrese la opcion: ";
+		cin>>op;
+		system("cls");
+
+		switch(op) {
+		case 1:
+			puntosDeSalud();
+			break;
+		case 2:
+			puntosDeDenuncia();
+			break;
+		case 0:
+			cout << "Volviendo..." << endl << "Presione cualquier tecla para continuar." << endl;
+			getch();
+			system("cls");
+			break;
+		default:
+			cout << "Opcion no valida. Ingrese nuevamente" << endl << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			break;
+		}
+	} while(op != 0);
+}
+
+void puntosDeSalud() {
+	int op;
+
+	do {
+		encabezadoSalud();
+		cout << "1. Zona Norte" << endl;
+		cout << "2. Zona Sur" << endl;
+		cout << "3. Zona Este" << endl;
+		cout << "4. Zona Oeste" << endl;
+		cout << "0. Volver" << endl;
+		cout << "Ingrese la opcion: ";
+		cin>>op;
+		system("cls");
+
+		switch(op) {
+		case 1:
+			cout << "*** PUNTOS DE SALUD ZONA NORTE ***" << endl << endl;
+			cout << "Centro de Salud Pochola Trapero" << endl  << "Telefono: 3442168" << endl << "Direccion: Banzer entre 6 y 7 anillo, barrio Claracuta" << endl << endl;
+			cout << "Centro de Salud Virgen de Cotoca" << endl  << "Telefono: 3425834" << endl << "Direccion: Radial 27 entre 4 y 5 Anillo" << endl << endl;
+			cout << "Centro de Salud Hamacas" << endl  << "Telefono: 3427473" << endl << "Direccion: Av Alemana calle 11 entre 3 y 4 anillo" << endl << endl;
+			cout << "Presione cualquier tecla para continuar.";
+			getch();
+			system("cls");
+			break;
+		case 2:
+			cout << "*** PUNTOS DE SALUD ZONA SUR ***" << endl << endl;
+			cout << "Centro de Salud Pochola Trapero" << endl  << "Telefono: 3526720" << endl << "Direccion: Av Fatima 510" << endl << endl;
+			cout << "Centro de Salud Elvira Wunderlich" << endl  << "Telefono: 3579524" << endl << "Direccion: Calle Yacuiba, barrio Ramada" << endl << endl;
+			cout << "Centro de Salud Sagrada Familia" << endl  << "Telefono: 3553341" << endl << "Direccion: Av Paurita, Calle 24 de Junio" << endl << endl;
+			cout << "Presione cualquier tecla para continuar.";
+			getch();
+			system("cls");
+			break;
+		case 3:
+			cout << "*** PUNTOS DE SALUD ZONA ESTE ***" << endl << endl;
+			cout << "Hospital Japones" << endl  << "Telefono: 76380865" << endl << "Direccion: Av Dr Lucas Sucedo entre Guapay y Paragua" << endl << endl;
+			cout << "Centro de Salud Lazareto" << endl  << "Telefono: 3461151" << endl << "Direccion: Barrio Lazareto, Calle Corumba, esq Pailon" << endl << endl;
+			cout << "PROSALUD" << endl  << "Telefono: 3474370" << endl << "Direccion: Av Dr Lucas Saucedo entre Paragua y Guapay" << endl << endl;
+			cout << "Presione cualquier tecla para continuar.";
+			getch();
+			system("cls");
+			break;
+		case 4:
+			cout << "*** PUNTOS DE SALUD ZONA OESTE ***" << endl << endl;
+			cout << "Hospital San Juan de Dios" << endl  << "Telefono: 3332222" << endl << "Direccion: Calle Rafael Pena entre Canoto y Espana" << endl << endl;
+			cout << "Hospital de la Mujer Dr. Percy Boland Rodriguez" << endl  << "Telefono: 3363522" << endl << "Direccion: Calle Cuellar entre Canoto y Espana" << endl << endl;
+			cout << "Presione cualquier tecla para continuar.";
+			getch();
+			system("cls");
+			break;
+		case 0:
+			cout << "Volviendo..." << endl << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			break;
+		default:
+			cout << "Opcion invalida. Ingrese otra opcion." << endl << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			break;
+		}
+	} while(op != 0);
+}
+
+void puntosDeDenuncia() {
+	encabezadoDenuncias();
+	cout << "Defensoria de la Ninez" << endl << "Telefono: 3451847" << endl << "Direccion: Av Cesar Cronenbold, a 2 cuadras del Zoo" << endl << endl;
+	cout << "Unidad de Victimas Especiales, oficina central" << endl << "Telefono: 3335770" << endl << "Direccion: Av Uruguay, prolongación Campero 55" << endl << endl;
+	cout << "Unidad de Victimas Especiales Zona Plan 3000" << endl << "Telefono: 3702479" << endl << "Direccion: Sub-alcaldia D8, plaza el mechero" << endl << endl;
+	cout << "Unidad de Victimas Especiales Villa 1 de Mayo" << endl << "Telefono: 3496734" << endl << "Direccion: Sub-alcaldia D7, calle Gral Campero 7" << endl << endl;
+
+	cout << "Presione cualquier tecla para continuar." << endl;
+	getch();
+	system("cls");
+}
+
+void crearArchivoSiNoExisteUsuario() {
+	FILE *existe;
+	existe= fopen("usuarios.dat", "rb");
+	if(existe == NULL) {
+		FILE *ptr = fopen("usuarios.dat", "wb");
+		fclose(ptr);
+	}
+	else
+		fclose(existe);
+}
+void crearArchivoSiNoExisteAdministrador() {
+	FILE *existe;
+	existe= fopen("administradores.dat", "rb");
+	if(existe == NULL) {
+		FILE *ptr = fopen("administradores.dat", "wb");
+		fclose(ptr);
+	}
+	else
+		fclose(existe);
+}
+void crearArchivoSiNoExistePsicologos() {
+	FILE *existe;
+	existe= fopen("psicologos.dat", "rb");
+	if(existe == NULL) {
+		FILE *ptr = fopen("psicologos.dat", "wb");
+		fclose(ptr);
+	}
+	else
+		fclose(existe);
+}
+void crearArchivoSiNoExisteAbogados() {
+	FILE *existe;
+	existe= fopen("abogados.dat", "rb");
+	if(existe == NULL) {
+		FILE *ptr = fopen("abogados.dat", "wb");
+		fclose(ptr);
+	}
+	else
+		fclose(existe);
+}
+void crearArchivoSiNoExisteComentarios() {
+	FILE *existe;
+	existe= fopen("comentarios.dat", "rb");
+	if(existe == NULL) {
+		FILE *ptr = fopen("comentarios.dat", "wb");
+		fclose(ptr);
+	}
+	else
+		fclose(existe);
+}
+
+void main() {
+
+	crearArchivoSiNoExisteUsuario();
+	crearArchivoSiNoExisteAdministrador();
+	crearArchivoSiNoExistePsicologos();
+	crearArchivoSiNoExisteAbogados();
+	crearArchivoSiNoExisteComentarios();
+
+	esPrimeraEjecucion();
+
+	int op;
+	do {
+		encabezadoMenuIngreso();
+		cout << "1. Administrador" << endl;
+		cout << "2. Usuario Regular" << endl;
+		cout << "3. Registrar Nuevo Usuario" << endl;
+		cout << "4. Salir del Programa" << endl;
+		cout << "Ingrese la opcion: ";
+		cin>>op;
+
+		switch(op) {
+		case 1:
+			system("cls");
+			menuAdministrador();
+			break;
+		case 2:
+			system("cls");
+			menuUsuario();
+			break;
+		case 3:
+			system("cls");
+			agregarUsuario();
+			menuUsuario();
+			break;
+		case 4:
+			cout << "Saliendo del Programa..." << endl;
+			break;
+		default:
+			cout << "Opcion no valida, Ingrese otra opcion" << endl;
+			getch();
+			system("cls");
+			break;
+		}
+	} while(op != 4);
+
+	getch();
+}
+
+void esPrimeraEjecucion() {
+	FILE *ptr;
+	ptr= fopen("primera.dat", "rb");
+
+	if(ptr == NULL) {
+		ptr = fopen("primera.dat", "wb");
+		agregarAdministrador();
+		getch();
+		system("cls");
+	}
+	else
+		fclose(ptr);
+}
+
+void menuAdministrador() {
+
+	int op,op1;
+	do {
+		encabezadoMenuAdministrador();
+		cout << "1. Ingresar al sitio" << endl;
+		cout << "2. Volver atras" << endl;
+		cout << "Ingrese la opcion: ";
+		cin>>op;
+		system("cls");
+
+		switch(op) {
+		case 1:
+			signInAdministrador();
+			do {
+				encabezadoMenuAdministrador();
+				cout << "1. Crear archivo en blanco de Psicologos (elimina el archivo existente)" << endl;
+				cout << "2. Crear archivo en blanco de Abogados (elimina el archivo existente)" << endl;
+				cout << "3. Agregar Psicologo" << endl;
+				cout << "4. Agregar Abogado" << endl;
+				cout << "5. Eliminar Psicologo" << endl;
+				cout << "6. Eliminar Abogado" << endl;
+				cout << "7. Agregar Administrador" << endl;
+				cout << "8. Agregar Usuario" << endl;
+				cout << "9. Eliminar Administrador" << endl;
+				cout << "10. Eliminar Usuario" << endl;
+				cout << "11. Mostrar Lista de Administradores" << endl;
+				cout << "12. Mostrar Lista de Usuarios" << endl;
+				cout << "13. Salir del menu de administradores" << endl;
+				cout << "Ingrese una opcion: ";
+				cin>>op1;
+				system("cls");
+
+				switch(op1) {
+				case 1:
+					crearArchivoPsicologos();
+					cout << "Archivo de Psicologos creado con exito" << endl << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				case 2:
+					crearArchivoAbogados();
+					cout << "Archivo de Abogados creado con exito" << endl << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				case 3:
+					agregarPsicologo();
+					cout << "Psicologo agregado" << endl << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				case 4:
+					agregarAbogado();
+					cout << "Abogado agregado" << endl << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				case 5:
+					eliminarPsicologo();
+					getch();
+					system("cls");
+					break;
+				case 6:
+					eliminarAbogado();
+					getch();
+					system("cls");
+					break;
+				case 7:
+					agregarAdministrador();
+					getch();
+					system("cls");
+					break;
+				case 8:
+					agregarUsuario();
+					getch();
+					system("cls");
+					break;
+				case 9:
+					eliminarAdministrador();
+					getch();
+					system("cls");
+					break;
+				case 10:
+					eliminarUsuario();
+					getch();
+					system("cls");
+					break;
+				case 11:
+					imprimirArchivoAdministrador();
+					getch();
+					system("cls");
+					break;
+				case 12:
+					imprimirArchivoUsuario();
+					getch();
+					system("cls");
+					break;
+				case 13:
+					cout << "Saliendo del menu para Administradores." << endl << "Presione cualquier tecla para continuar.";
+					getch();
+					main();
+					system("cls");
+					break;
+				default:
+					system("cls");
+					cout << "Opcion no valida, Ingrese otra opcion." << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			} while(op != 13);
+			system("cls");
+			break;
+		case 2:
+			cout << "Presione cualquier tecla para continuar";
+			getch();
+			system("cls");
+			break;
+		default:
+			cout << "Opcion no valida." << endl << "Presione cualquer tecla para continuar" << endl;
+			getch();
+			system("cls");
+			break;
+		}
+	} while(op != 2);
+}
+
+void signInAdministrador() {
+	
+	char usern[MAX_USERNAME], pass[MAX_CONTRASENA];
+
+	encabezadoSignInAdministrador();
+
+	cout << "Ingrese solo caracteres alfabeticos, numeros o guiones para el username" << endl;
+	cout << "Presione cualquier tecla para continuar" << endl;
+	getch();
+	system("cls");
+	encabezadoSignInAdministrador();
+	cin.ignore();
+	cout << "Introduzca el username: ";
+	cin>>(usern);
+
+	system("cls");
+
+	// lectura de contrasena
+
+	encabezadoSignInAdministrador();
+
+	cout << "Ingrese su contrasena: ";
+	cin>>(pass);
+
+	system("cls");
+
+}
+
+void crearArchivoPsicologos() {
+	FILE *ptr;
+	ptr= fopen("psicologos.dat", "wb");
+	fclose(ptr);
+}
+
+void crearArchivoAbogados() {
+	FILE *ptr;
+	ptr= fopen("abogados.dat", "wb");
+	fclose(ptr);
+}
+
+void agregarPsicologo() {
+	
+	FILE *ptr;
+	Persona p;
+	ptr=fopen("psicologos.dat","ab");
+	if (ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		// lectura de nombre
+	
+	encabezadoAgregarPsicologo();
+	
+			cout << "Ingrese solo caracteres alfabeticos para el nombre" << endl;
+			cout << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarPsicologo();
+		
+		cout << "Ingrese el nombre del Psicologo: ";
+		cin>>(p.nombre);
+		
+	system("cls");
+
+	// lectura de especialidad
+	encabezadoAgregarPsicologo();
+	
+			cout << "Ingrese solo caracteres alfabeticos para la especialidad." << endl;
+			cout << "Presione cualquier tecla para continuar." << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarPsicologo();
+		
+		cout << "Ingrese la especialidad del Psicologo: ";
+		cin>>(p.especialidad);
+		
+	system("cls");
+
+	// lectura de direccion
+	
+	encabezadoAgregarPsicologo();
+	
+			cout << "Ingrese solo caracteres alfabeticos para la direccion" << endl;
+			cout << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarPsicologo();
+		
+		cout << "Ingrese la direccion del Psicologo: ";
+		cin>>(p.direccion);
+		
+	system("cls");
+	// lectura de email
+	
+	encabezadoAgregarPsicologo();
+	
+			cout << "Ingrese una direccion de email valida." << endl;
+			cout << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarPsicologo();
+		
+		cout << "Ingrese el email del Psicologo: ";
+		cin>>(p.email);
+	system("cls");
+
+	// lectura de telefono
+	
+	encabezadoAgregarPsicologo();
+	
+			cout << "Ingrese un numero de telefono valido para Bolivia." << endl;
+			cout << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarPsicologo();
+		
+		cout << "Ingrese el numero de telefono del Psicologo: ";
+		cin>>(p.telefono); 
+		
+	
+	system("cls");
+
+	p.estado = 9;
+	fwrite(&p, sizeof(p), 1, ptr);
+	fclose(ptr);
+
+	imprimirArchivoPsicologo();
+	}
+}
+
+void agregarAbogado() {
+	cin.ignore();
+	FILE *ptr;
+	Persona p;
+	ptr=fopen("abogados.dat","ab");
+	if (ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		// lectura de nombre
+	
+	encabezadoAgregarAbogado();
+	
+			cout << "Ingrese solo caracteres alfabeticos para el nombre" << endl;
+			cout << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarAbogado();
+		
+		cout << "Ingrese el nombre del Abogado: ";
+		cin>>(p.nombre);
+		
+	system("cls");
+
+	// lectura de especialidad
+	encabezadoAgregarAbogado();
+	
+			cout << "Ingrese solo caracteres alfabeticos para la especialidad." << endl;
+			cout << "Presione cualquier tecla para continuar." << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarAbogado();
+		
+		cout << "Ingrese la especialidad del Abogado: ";
+		cin>>(p.especialidad);
+		
+	system("cls");
+
+	// lectura de direccion
+	
+	encabezadoAgregarAbogado();
+	
+			cout << "Ingrese solo caracteres alfabeticos para la direccion" << endl;
+			cout << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarAbogado();
+		
+		cout << "Ingrese la direccion del Abogado: ";
+		cin>>(p.direccion);
+		
+	system("cls");
+	// lectura de email
+	
+	encabezadoAgregarAbogado();
+	
+			cout << "Ingrese una direccion de email valida." << endl;
+			cout << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarAbogado();
+		
+		cout << "Ingrese el email del Abogado: ";
+		cin>>(p.email);
+	system("cls");
+
+	// lectura de telefono
+	
+	encabezadoAgregarAbogado();
+	
+			cout << "Ingrese un numero de telefono valido para Bolivia." << endl;
+			cout << "Presione cualquier tecla para continuar" << endl;
+			getch();
+			system("cls");
+			encabezadoAgregarAbogado();
+		
+		cout << "Ingrese el numero de telefono del Abogado: ";
+		cin>>(p.telefono); 
+		
+	
+	system("cls");
+
+	p.estado = 9;
+	fwrite(&p, sizeof(p), 1, ptr);
+	fclose(ptr);
+
+	imprimirArchivoAbogado();
+	}
+}
+
+void eliminarPsicologo() {
+	
+	FILE *ptr;
+	Persona p;
+	int pos;
+	char nombre[MAX_NOMBRE];
+	ptr=fopen("psicologos.dat","r+b");
+	if(ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		
+		encabezadoEliminarPsicologo();
+		cout << "Ingrese el nombre del psicologo a eliminar: ";
+		cin>>(nombre);
+		pos=obtenerPosicionEnArchivoPsicologo(nombre);
+		fseek(ptr,(pos-1)*sizeof(p),SEEK_SET);
+		fread(&p,sizeof(p),1,ptr);
+		if (!feof(ptr)&&p.estado==9)
+		{
+			p.estado=0;
+			fseek(ptr,(pos-1)*sizeof(p),SEEK_SET);
+			fwrite (&p,sizeof(p),1,ptr);
+		}
+		fclose(ptr);
+	}
+}
+
+void eliminarAbogado() {
+	
+	FILE *ptr;
+	Persona p;
+	char nombre[MAX_NOMBRE];
+	int pos;
+	ptr=fopen("abogados.dat","r+b");
+	if(ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		
+		encabezadoEliminarAbogado();
+		cout << "Ingrese el nombre del Abogado a eliminar: ";
+		cin>>(nombre);
+		pos=obtenerPosicionEnArchivoAbogado(nombre);
+		fseek(ptr,(pos-1)*sizeof(p),SEEK_SET);
+		fread(&p,sizeof(p),1,ptr);
+		if (!feof(ptr)&&p.estado==9)
+		{
+			p.estado=0;
+			fseek(ptr,(pos-1)*sizeof(p),SEEK_SET);
+			fwrite (&p,sizeof(p),1,ptr);
+		}
+		fclose(ptr);
+	}
+}
+
+void agregarAdministrador() {
+
+	FILE *ptr;
+	Administrador a;
+	
+	ptr=fopen("administradores.dat","ab");
+	if (ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		
+			encabezadoAgregarAdministrador();
+		cout << "Ingrese solo caracteres alfabeticos, numeros o guiones para el username" << endl;
+		cout << "Presione cualquier tecla para continuar" << endl;
+		getch();
+		system("cls");
+		encabezadoAgregarAdministrador();
+		cout << "Introduzca el username: ";
+		cin>>(a.username);
+		system("cls");
+
+		// lectura de contrasena
+
+		encabezadoAgregarAdministrador();
+
+		cout << "Ingrese una contrasena valida" << endl;
+		cout << "Presione cualquier tecla para continuar" << endl;
+		getch();
+		system("cls");
+		encabezadoAgregarAdministrador();
+
+		cout << "Ingrese su contrasena: ";
+		cin>>(a.contrasena);
+
+		system("cls");
+
+		a.estado = 9;
+		fwrite(&a, sizeof(a), 1, ptr);
+		fclose(ptr);
+
+		cout << "Administrador agregado!" << endl << "Presione cualquier tecla para continuar." << endl;
+	}
+
+		
+}
+
+void agregarUsuario() {
+	cin.ignore();
+	FILE *ptr;
+	Usuario u;
+	
+	ptr=fopen("usuarios.dat","ab");
+	if (ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		encabezadoAgregarUsuario();
+		cout << "Ingrese solo caracteres alfabeticos, numeros o guiones para el username" << endl;
+		cout << "Presione cualquier tecla para continuar" << endl;
+		getch();
+		system("cls");
+		encabezadoAgregarUsuario();
+		cout << "Introduzca el username: ";
+		cin>>(u.username);
+		system("cls");
+
+		// lectura de contrasena
+
+		encabezadoAgregarUsuario();
+
+		cout << "Ingrese una contrasena valida" << endl;
+		cout << "Presione cualquier tecla para continuar" << endl;
+		getch();
+		system("cls");
+		encabezadoAgregarUsuario();
+		// lectura de contrasena
+		cout << "Ingrese su contrasena: ";
+		cin>>(u.contrasena);
+
+		system("cls");
+
+		// lectura de nombre
+
+		encabezadoAgregarUsuario();
+
+		cout << "Ingrese solo caracteres alfabeticos para el nombre" << endl;
+		cout << "Presione cualquier tecla para continuar" << endl;
+		getch();
+		system("cls");
+		encabezadoAgregarUsuario();
+
+		cout << "Ingrese su nombre: ";
+		cin>>(u.nombre);
+
+		system("cls");
+
+		// lectura de email
+
+		encabezadoAgregarUsuario();
+
+		cout << "Ingrese su email: ";
+		cin>>(u.email);
+
+		system("cls");
+
+		// lectura de genero
+
+		encabezadoAgregarUsuario();
+
+		cout << "Ingrese un una sola letra valida para el genero (M / F)" << endl;
+		cout << "Presione cualquier tecla para continuar" << endl;
+		getch();
+		system("cls");
+		encabezadoAgregarUsuario();
+
+		cout << "Ingrese su genero (M / F): ";
+		cin>>(u.genero);
+
+			system("cls");
+
+		// lectura de telefono
+
+		encabezadoAgregarUsuario();
+
+		cout << "Ingrese un numero de telefono valido para Bolivia" << endl;
+		cout << "Presione cualquier tecla para continuar" << endl;
+		getch();
+		system("cls");
+		encabezadoAgregarUsuario();
+
+		cout << "Ingrese su numero de telefono: ";
+		cin>>(u.telefono);
+
+		system("cls");
+
+		u.estado = 9;
+		fwrite(&u, sizeof(u), 1, ptr);
+		fclose(ptr);
+
+		cout << "Usuario agregado!" << endl << "Presione cualquier tecla para continuar." << endl;
+	}
+	}
+
+void eliminarAdministrador() {
+	cin.ignore();
+FILE *ptr;
+	Administrador a;
+	int pos;
+	char user[MAX_USERNAME];
+	ptr=fopen("administradores.dat","r+b");
+	if(ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		encabezadoEliminarAdministrador();
+		cout << "Ingrese el username a eliminar: ";
+		cin>>(user);
+
+		pos = obtenerPosicionEnArchivoAdministrador(user);
+		fseek(ptr, (pos - 1) * sizeof(a), SEEK_SET);
+		fread(&a, sizeof(a), 1, ptr);
+		
+		if (!feof(ptr) && a.estado==9)
+		{
+			a.estado = 0;
+		fseek(ptr, (pos - 1) * sizeof(a), SEEK_SET);
+		fwrite(&a, sizeof(a), 1, ptr);
+		}
+		fclose (ptr);
+		cout << "Administrador eliminado!" << endl << "Presione cualquier tecla para continuar." << endl;
+	}
+}
+
+void eliminarUsuario() {
+	
+FILE *ptr;
+	Usuario u;
+	int pos;
+	char user[MAX_USERNAME];
+	ptr=fopen("usuarios.dat","r+b");
+	if(ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		encabezadoEliminarUsuario();
+		cout << "Ingrese el username a eliminar: ";
+		cin>>(user);
+
+		pos = obtenerPosicionEnArchivoAdministrador(user);
+		fseek(ptr, (pos - 1) * sizeof(u), SEEK_SET);
+		fread(&u, sizeof(u), 1, ptr);
+		
+		if (!feof(ptr) && u.estado==9)
+		{
+			u.estado = 0;
+		fseek(ptr, (pos - 1) * sizeof(u), SEEK_SET);
+		fwrite(&u, sizeof(u), 1, ptr);
+		}
+		fclose (ptr);
+		cout << "Administrador eliminado!" << endl << "Presione cualquier tecla para continuar." << endl;
+	}
+}
+
+void mostrarPsicologos() {
+	imprimirArchivoPsicologo();
+}
+
+void mostrarAbogados() {
+	imprimirArchivoAbogado();
+}	
+
+void imprimirArchivoUsuario() {
+	cin.ignore();
+	FILE *ptr;
+	Usuario u;
+	ptr=fopen("usuarios.dat", "rb"); 
+	
+	if(ptr==NULL)
+		cout<<"No existe el archivo "<<endl;
+	else
+	{
+		fread (&u,sizeof(u),1,ptr);
+		cout<<"NOMBRE			USERNAME			GENERO				EMAIL			TELEFONO"<<endl;
+		cout<<"----------------------------------------------------------------------------------"<<endl;
+		while(!feof(ptr))
+		{
+			if(u.estado==9)
+			{
+				cout<<u.nombre<<"\t""\t"<<u.username<<"\t""\t"<<u.genero<<"\t""\t"<<u.email<<"\t""\t"<<u.telefono<<endl;
+			}
+			fread(&u,sizeof(u),1,ptr);
+		}
+		cout<<"--------------------------------------------------------------------------------"<<endl;
+		fclose(ptr);
+	}
+}
+
+void imprimirArchivoAdministrador() {
+	cin.ignore();
+	FILE *ptr;
+	Administrador a;
+	ptr=fopen("administradores.dat", "rb");
+	
+	if(ptr==NULL)
+		cout<<"No existe el archivo "<<endl;
+	else
+	{
+		fread (&a,sizeof(a),1,ptr);
+		cout<<"USERNAME			CONTRASENA"<<endl;
+		cout<<"-------------------------------------"<<endl;
+		while(!feof(ptr))
+		{
+			if(a.estado==9)
+			{
+				cout<<a.username<<"\t""\t"<<a.contrasena<<endl;
+			}
+			fread(&a,sizeof(a),1,ptr);
+		}
+		cout<<"----------------------------------------"<<endl;
+		fclose(ptr);
+	}
+}
+
+int obtenerPosicionEnArchivoPsicologo(char nombre[]){
+	FILE *ptr;
+	Persona p;
+	int cont=0,pos;
+	ptr = fopen("psicologos.dat", "rb");
+	if(ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		fread(&p,sizeof(p),1,ptr);
+		while (!feof(ptr))
+		{
+			cont++;
+			if (p.nombre==nombre)
+			{
+				pos=cont;
+			}
+			fread(&p,sizeof(p),1,ptr);
+		}
+		fclose(ptr);
+	}
+	return(pos);
+}
+int obtenerPosicionEnArchivoAbogado(char nombre[]){
+	FILE *ptr;
+	Persona p;
+	int cont=0,pos;
+	ptr = fopen("abogados.dat", "rb");
+	if(ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		fread(&p,sizeof(p),1,ptr);
+		while (!feof(ptr))
+		{
+			cont++;
+			if (p.nombre==nombre)
+			{
+				pos=cont;
+			}
+			fread(&p,sizeof(p),1,ptr);
+		}
+		fclose(ptr);
+	}
+	return(pos);
+}
+
+int obtenerPosicionEnArchivoAdministrador(char nombre[]) {
+	FILE *ptr;
+	Administrador a;
+	int cont=0,pos;
+	ptr = fopen("administradores.dat", "rb");
+	if(ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		fread(&a,sizeof(a),1,ptr);
+		while (!feof(ptr))
+		{
+			cont++;
+			if (a.username==nombre)
+			{
+				pos=cont;
+			}
+			fread(&a,sizeof(a),1,ptr);
+		}
+		fclose(ptr);
+	}
+	return(pos);
+	
+}
+
+int obtenerPosicionEnArchivoUsuario(char nombre[]) {
+	FILE *ptr;
+	Usuario u;
+	int cont=0,pos;
+	ptr = fopen("usuarios.dat", "rb");
+	if(ptr==NULL)
+		cout<<"No existe el archivo"<<endl;
+	else
+	{
+		fread(&u,sizeof(u),1,ptr);
+		while (!feof(ptr))
+		{
+			cont++;
+			if (u.nombre==nombre)
+			{
+				pos=cont;
+			}
+			fread(&u,sizeof(u),1,ptr);
+		}
+		fclose(ptr);
+	}
+	return(pos);
+	
+}
+
+void menuUsuario() {
+	int op,opcion;
+	encabezadoMenuUsuario();
+	cout << "1. Ingresar al sitio" << endl;
+	cout << "2. Volver atras" << endl;
+	cout << "Ingrese la opcion: ";
+	cin>>op;
+	system("cls");
+
+	switch(op) {
+	case 1:
+		signInUsuario();
+		do
+		{
+			cout<<"	       	FEMENINA	"<<endl;
+			cout<<"------------------------------------------------------------------"<<endl;
+			cout<<"1. Acerca de nosotros... "<<endl;
+			cout<<"2. Conoce los tipos de violencia que sufren las mujeres"<<endl;
+			cout<<"3. Realiza nuestros tests que te ayudaran a saber si sufres de violencia"<<endl;
+			cout<<"4. Tips para ayudarte"<<endl;
+			cout<<"5. Eventos para ti"<<endl;
+			cout<<"6. Profesionales capacitados para brindarte ayuda"<<endl;
+			cout<<"7. Actividades para ellas"<<endl;
+			cout << "8. Rutas de Atencion" << endl;
+			cout << "9. Agregar Comentario Anonimo" << endl;
+			cout << "10. Ver Comentarios Anonimos" << endl;
+			cout<<"11. Contactanos"<<endl;
+			cout<<"0. SALIR"<<endl;
+			cout<<"-------------------------------------------------------------------"<<endl;
+			cin>>opcion;
+			system("CLS");
+
+			switch (opcion)
+			{
+			case 1:
+				{
+					informacion_femenina (opcion);
+					cout << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			case 2:
+				{
+					tipos_de_violencia(opcion);
+					cout << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			case 3:
+				{
+					test (opcion);
+					cout << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			case 4:
+				{
+					tips (opcion);
+					cout << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			case 5:
+				{
+					eventos (opcion);
+					cout << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			case 6:
+				{
+					cout<<endl<<"Femenina cree que es muy importante la ayuda profesional en estas ocasiones."<<endl;
+					cout<<"Un psicologo puede ser una gran ayuda para ti, a continuacion te mostraremos una lista de los psicologos que tenemos recomendados para ti. "<<endl<<endl;
+					
+					mostrarPsicologos();
+					cout<<endl<<endl<<"Si es necesaria ayuda legal, a continuacion te mostraremos una lista de los abogados que tenemos recomendados para ti. "<<endl<<endl;
+					
+					mostrarAbogados();
+					cout << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			case 7:
+				{
+					actividades (opcion);
+					cout << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			case 8:
+				{
+					rutasDeInformacion();
+					break;
+				}
+			case 9:
+				{
+					agregarComentario();
+					break;
+				}
+			case 10:
+				{
+					imprimirArchivoComentarios();
+					cout << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			case 11:
+				{
+				encabezadoContactanos();
+				cout << "Contactenos a los siguientes numeros telefonicos:" << endl;
+				cout << "1. 3658788" << endl;
+				cout << "2. 3333689" << endl;
+				cout << "3. 3333544" << endl << endl;
+				cout << "Presione cualquier tecla para continuar." << endl;
+				getch();
+				system("cls");
+				break;
+				}
+
+			case 0:
+				{
+					cout << "Saliendo del programa." << endl << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			default:
+				{
+					cout << "Opcion no valida. Ingrese otra opcion." << endl << "Presione cualquier tecla para continuar." << endl;
+					getch();
+					system("cls");
+					break;
+				}
+			}
+
+		}while (( opcion>0) || (opcion<0));
+		system("cls");
+		break;
+	}
+
+}
+
+void signInUsuario() {
+	cin.ignore();
+	FILE *ptr;
+	Usuario u;
+	char usern[MAX_USERNAME], pass[MAX_CONTRASENA];
+	int codigo = 0;
+	ptr= fopen("usuarios.dat", "rb");
+
+	encabezadoSignInUsuario();
+	if(ptr != NULL) {
+		fread(&u, sizeof(u), 1, ptr);
+		while(feof(ptr)) {
+			if(u.estado == 9) {
+				cout << "Ingrese solo caracteres alfabeticos, numeros o guiones para el username" << endl;
+				cout << "Presione cualquier tecla para continuar" << endl;
+				getch();
+				system("cls");
+				encabezadoSignInUsuario();
+
+				cout << "Introduzca el username: ";
+				cin>>(usern);
+
+				system("cls");
+
+				// lectura de contrasena
+
+				encabezadoSignInUsuario();
+
+				cout << "Ingrese una contrasena valida" << endl;
+				cout << "Presione cualquier tecla para continuar" << endl;
+				getch();
+				system("cls");
+				encabezadoSignInUsuario();
+
+				cout << "Ingrese su contrasena: ";
+				cin>>(pass);
+
+				system("cls");
+
+			}
+		}
+		fread(&u, sizeof(u), 1, ptr);
+	}
+	fclose(ptr);
+}
+
+void agregarComentario() {
+	FILE *ptr;
+		Comentario c;
+	ptr= fopen("comentarios.dat", "ab");
+	
+
+
+	cout << "Ingrese un comentario de no mas de 140 caracteres: " << endl << endl;
+	cin>>(c.comm);
+
+
+	fwrite(&c, sizeof(c), 1, ptr);
+	fclose(ptr);
+
+	cout << "Comentario Agregado!" << endl << "Presione cualquier tecla para continuar." << endl;
+	getch();
+	system("cls");
+}
+
+
+void imprimirArchivoPsicologo(){
+	FILE *ptr; 
+	Persona p;
+	ptr= fopen("psicologos.dat", "rb");
+	if(ptr==NULL)
+		cout<<"No existe el archivo "<<endl;
+	else
+	{
+		fread (&p,sizeof(p),1,ptr);
+		cout<<"NOMBRE			ESPECIALIDAD			DIRECCION			EMAIL			TELEFONO"<<endl;
+		cout<<"----------------------------------------------------------------------"<<endl;
+		while(!feof(ptr))
+		{
+			if(p.estado==9)
+			{
+				cout<<p.nombre<<"\t""\t"<<p.especialidad<<"\t""\t"<<p.direccion<<"\t""\t"<<p.email<<"\t""\t"<<p.telefono<<endl;
+			}
+			fread(&p,sizeof(p),1,ptr);
+		}
+		cout<<"------------------------------------------------------------------------"<<endl;
+		fclose(ptr);
+	}
+}
+
+void imprimirArchivoAbogado(){
+	FILE *ptr; 
+	Persona p;
+	ptr= fopen("abogados.dat", "rb");
+	if(ptr==NULL)
+		cout<<"No existe el archivo "<<endl;
+	else
+	{
+		fread (&p,sizeof(p),1,ptr);
+		cout<<"NOMBRE			ESPECIALIDAD			DIRECCION			EMAIL			TELEFONO"<<endl;
+		cout<<"----------------------------------------------------------------------"<<endl;
+		while(!feof(ptr))
+		{
+			if(p.estado==9)
+			{
+				cout<<p.nombre<<"\t""\t"<<p.especialidad<<"\t""\t"<<p.direccion<<"\t""\t"<<p.email<<"\t""\t"<<p.telefono<<endl;
+			}
+			fread(&p,sizeof(p),1,ptr);
+		}
+		cout<<"------------------------------------------------------------------------"<<endl;
+		fclose(ptr);
+	}
+}
+void imprimirArchivoComentarios() {
+	FILE *ptr;
+	Comentario c;
+	ptr= fopen("comentarios.dat", "rb");
+	
+	if(ptr==NULL)
+		cout<<"No existe el archivo "<<endl;
+	else
+	{
+		fread (&c,sizeof(c),1,ptr);
+		cout<<"								COMENTARIOS						"<<endl;
+		cout<<"----------------------------------------------------------------------------------"<<endl;
+		while(!feof(ptr))
+		{
+			
+				cout<<c.comm<<endl;
+	
+			fread(&c,sizeof(c),1,ptr);
+		}
+		cout<<"--------------------------------------------------------------------------------"<<endl;
+		fclose(ptr);
+	}
+}
+
